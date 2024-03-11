@@ -1,0 +1,1 @@
+export const CMS_URL = "http://cms.wdrws.org/wp-json/wp/v2/";
