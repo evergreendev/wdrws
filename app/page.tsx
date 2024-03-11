@@ -2,8 +2,25 @@ import ImageCard from "@/app/components/ImageCard";
 import reportImg from "@/public/annual-report.jpg";
 import opportunityImg from "@/public/opportunity.jpg";
 import discoverImg from "@/public/discover.jpg";
+import aboutImg from "@/public/katie-leclair.jpg";
+import {CMS_URL} from "@/constants";
+import ColCard from "@/app/components/ColCard";
 
-export default function Home() {
+async function getData() {
+    const res = await fetch(`${CMS_URL}pages`)
+    // The return value is *not* serialized
+    // You can return Date, Map, Set, etc.
+
+    if (!res.ok) {
+        // This will activate the closest `error.js` Error Boundary
+        throw new Error('Failed to fetch data')
+    }
+
+    return res.json()
+}
+
+export default async function Home() {
+
     return (
         <main className="font-pt_sans flex min-h-screen flex-col justify-between bg-white">
             <div className="bg-secondary-100 pb-28 ml-24 flex justify-start font-newsreader">
@@ -34,7 +51,45 @@ export default function Home() {
                         WDRWS was formed in 2021 to <br/>address the growing water needs <br/>of western South Dakota.
                     </p>
                 </div>
-                <ImageCard linkStyles="w-4/12 -mt-24" colorScheme="yellow" src={discoverImg} text="Discover what the WDRWS has accomplished so far" link="/discover"/>{/*todo all links on homepage*/}
+                <ImageCard linkStyles="w-4/12 -mt-24" colorScheme="yellow" src={discoverImg}
+                           text="Discover what the WDRWS has accomplished so far"
+                           link="/discover"/>{/*todo all links on homepage*/}
+            </div>
+            <div className="w-full max-w-screen-xl m-auto -translate-y-20 flex justify-between">
+                <ColCard styles="w-[31%]" textClass="text-primary-500" borderClass="border-primary-500" src={reportImg} header="Materials" subHeader="Technical Sessions"
+                         text="The anatomy of regional water projects" items={[
+                    {
+                        title: "Annual Report",
+                        url: "/annual-report",
+                        src: discoverImg
+                    },
+                    {
+                        title: "Meeting Agenda",
+                        url: "/meeting-agenda",
+                        src: discoverImg
+                    }
+                ]}/>
+                <ColCard styles="w-[31%]" textClass="text-secondary-500" borderClass="border-t-secondary-500" src={aboutImg} header="News" subHeader="In the Media" text="Congratulations to @Gary Drewes for being appointed to the SD State Water Management Board
+" items={[
+                    {
+                        title: "Events",
+                        url: "/events",
+                        src: discoverImg
+                    }
+                ]}/>
+                <ColCard styles="w-[31%]" textClass="text-green-500" borderClass="border-green-500" src={aboutImg} header="About Us" subHeader="Team Profile"
+                         text="Introducing Katie LeClair, the new Operations Manager of WDRWS" items={[
+                    {
+                        title: "The Board",
+                        url: "/the-board",
+                        src: discoverImg
+                    },
+                    {
+                        title: "Our History",
+                        url: "/our-history",
+                        src: discoverImg
+                    }
+                ]}/>
             </div>
         </main>
     );

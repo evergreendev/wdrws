@@ -17,7 +17,8 @@ const config: Config = {
         'gray': '#646463',
         'primary-500': '#ffce30',
         'secondary-100': '#e5ecf7',
-        'secondary-500': '#00588a'
+        'secondary-500': '#00588a',
+        'green-500': '#00a58f'
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
