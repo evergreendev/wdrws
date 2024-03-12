@@ -3,11 +3,11 @@ import reportImg from "@/public/annual-report.jpg";
 import opportunityImg from "@/public/opportunity.jpg";
 import discoverImg from "@/public/discover.jpg";
 import aboutImg from "@/public/katie-leclair.jpg";
-import {CMS_URL} from "@/constants";
 import ColCard from "@/app/components/ColCard";
+import Footer from "@/app/components/Footer";
 
 async function getData() {
-    const res = await fetch(`${CMS_URL}pages`)
+    const res = await fetch(`/api/pages`)
     // The return value is *not* serialized
     // You can return Date, Map, Set, etc.
 
@@ -91,6 +91,7 @@ export default async function Home() {
                     }
                 ]}/>
             </div>
+            <Footer/>
         </main>
     );
 }

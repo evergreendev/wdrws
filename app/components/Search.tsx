@@ -3,7 +3,6 @@
 import searchIcon from "@/public/search-icon.png";
 import Image from "next/image";
 import {useEffect, useRef, useState} from "react";
-import {CMS_URL} from "@/constants";
 import LoadSpinner from "@/app/components/LoadSpinner";
 import {WP_REST_API_Search_Result, WP_REST_API_Search_Results} from "wp-types";
 import Link from "next/link";
@@ -72,7 +71,7 @@ const Search = () => {
         async function getSearch() {
             setIsSearching(true);
             setSearchResultsIsShowing(true);
-            const res = await fetch(`${CMS_URL}search?search=${debouncedSearch}`,  { cache: 'no-store' });
+            const res = await fetch(`/api/search?search=${debouncedSearch}`,  { cache: 'no-store' });
             const data: WP_REST_API_Search_Results = await res.json();
 
             setIsSearching(false);
