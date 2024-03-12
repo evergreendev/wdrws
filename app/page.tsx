@@ -5,9 +5,10 @@ import discoverImg from "@/public/discover.jpg";
 import aboutImg from "@/public/katie-leclair.jpg";
 import ColCard from "@/app/components/ColCard";
 import Footer from "@/app/components/Footer";
+import {CMS_URL} from "@/constants";
 
 async function getData() {
-    const res = await fetch(`/api/pages`)
+    const res = await fetch(`${CMS_URL}/pages`)
     // The return value is *not* serialized
     // You can return Date, Map, Set, etc.
 

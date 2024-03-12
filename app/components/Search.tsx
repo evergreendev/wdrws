@@ -8,6 +8,7 @@ import {WP_REST_API_Search_Result, WP_REST_API_Search_Results} from "wp-types";
 import Link from "next/link";
 import {useDebounce} from "use-debounce";
 import {generateUrlFromSearchResult} from "@/app/utils/generateUrl";
+import {CMS_URL} from "@/constants";
 
 
 const Results = ({results, isLoading,term}: { results: WP_REST_API_Search_Results, isLoading: boolean, term:string }) => {
@@ -71,7 +72,7 @@ const Search = () => {
         async function getSearch() {
             setIsSearching(true);
             setSearchResultsIsShowing(true);
-            const res = await fetch(`https://cms.wdrws.org/wp-json/wp/v2/search?search=${debouncedSearch}`,  { cache: 'no-store' });
+            const res = await fetch(`${CMS_URL}search?search=${debouncedSearch}`,  { cache: 'no-store' });
             const data: WP_REST_API_Search_Results = await res.json();
 
             setIsSearching(false);
