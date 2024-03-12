@@ -3,6 +3,8 @@ import reportImg from "@/public/annual-report.jpg";
 import opportunityImg from "@/public/opportunity.jpg";
 import discoverImg from "@/public/discover.jpg";
 import aboutImg from "@/public/katie-leclair.jpg";
+import newsImg from "@/public/gary-drewes.jpg";
+import materialsImg from "@/public/technical-sessions.png";
 import ColCard from "@/app/components/ColCard";
 import Footer from "@/app/components/Footer";
 import {CMS_URL} from "@/constants";
@@ -57,7 +59,7 @@ export default async function Home() {
                            link="/discover"/>{/*todo all links on homepage*/}
             </div>
             <div className="w-full max-w-screen-xl m-auto -translate-y-20 flex justify-between">
-                <ColCard styles="w-[31%]" textClass="text-primary-500" borderClass="border-primary-500" src={reportImg} header="Materials" subHeader="Technical Sessions"
+                <ColCard styles="w-[31%]" textClass="text-primary-500" borderClass="border-primary-500" src={materialsImg} header="Materials" subHeader="Technical Sessions"
                          text="The anatomy of regional water projects" items={[
                     {
                         title: "Annual Report",
@@ -70,7 +72,7 @@ export default async function Home() {
                         src: discoverImg
                     }
                 ]}/>
-                <ColCard styles="w-[31%]" textClass="text-secondary-500" borderClass="border-t-secondary-500" src={aboutImg} header="News" subHeader="In the Media" text="Congratulations to @Gary Drewes for being appointed to the SD State Water Management Board
+                <ColCard styles="w-[31%]" textClass="text-secondary-500" borderClass="border-t-secondary-500" src={newsImg} header="News" subHeader="In the Media" text="Congratulations to @Gary Drewes for being appointed to the SD State Water Management Board
 " items={[
                     {
                         title: "Events",
