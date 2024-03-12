@@ -71,7 +71,7 @@ const Search = () => {
         async function getSearch() {
             setIsSearching(true);
             setSearchResultsIsShowing(true);
-            const res = await fetch(`/api/search?search=${debouncedSearch}`,  { cache: 'no-store' });
+            const res = await fetch(`https://cms.wdrws.org/wp-json/wp/v2/search?search=${debouncedSearch}`,  { cache: 'no-store' });
             const data: WP_REST_API_Search_Results = await res.json();
 
             setIsSearching(false);
