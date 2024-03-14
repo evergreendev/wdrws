@@ -54,7 +54,7 @@ export default async function Home() {
                         WDRWS was formed in 2021 to <br/>address the growing water needs <br/>of western South Dakota.
                     </p>
                 </div>
-                <ImageCard linkStyles="w-4/12 max-w-lg max-w-screen-sm -mt-24" colorScheme="yellow" src={discoverImg}
+                <ImageCard linkStyles="w-4/12 max-w-lg max-w-lg -mt-24" colorScheme="yellow" src={discoverImg}
                            text="Discover what the WDRWS has accomplished so far"
                            link="/discover"/>{/*todo all links on homepage*/}
             </div>
