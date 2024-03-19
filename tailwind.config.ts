@@ -14,11 +14,12 @@ const config: Config = {
     },
     extend: {
       colors: {
-        'gray': '#646463',
-        'primary-500': '#ffce30',
+        'gray': '#817466',
+        'dark-gray': '#231f20',
+        'primary-500': '#fecc40',
         'secondary-100': '#e5ecf7',
-        'secondary-500': '#00588a',
-        'green-500': '#00a58f'
+        'secondary-500': '#178acb',
+        'green-500': '#799d4f'
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
