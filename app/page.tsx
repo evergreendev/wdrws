@@ -26,12 +26,12 @@ export default async function Home() {
 
     return (
         <main className="font-pt_sans flex min-h-screen flex-col justify-between bg-white">
-            <div className="bg-secondary-100 pb-28 ml-24 flex justify-start font-newsreader">
-                <ImageCard wide linkStyles="w-6/12 max-w-screen-lg -translate-x-24" colorScheme="yellow" src={reportImg}
+            <div className="bg-green-200 max-w-screen-2xl pb-28 ml-36 flex justify-start font-newsreader items-center">
+                <ImageCard wide linkStyles="w-6/12 max-w-screen-lg -translate-x-36" colorScheme="yellow" src={reportImg}
                            link="/annual-report" text="Read the WDRWS Annual Report"/>
-                <div className="z-20 -ml-36">
-                    <h2 className="mt-56 text-7xl mb-4">purpose</h2>
-                    <p className="text-4xl ml-14 font-light max-w-screen-sm">
+                <div className="z-20 -ml-44">
+                    <h2 className="text-7xl mb-4">purpose</h2>
+                    <p className="pl-2 py-2 border-l-green-500 border-l-4 text-4xl ml-14 font-light max-w-screen-sm">
                         Ensuring quality, abundant water to all corners of western South Dakota
                     </p>
                 </div>
@@ -42,14 +42,14 @@ export default async function Home() {
                 <div className="bg-black bg-opacity-20 border-t-[64px] border-b-[64px] w-0.5 mx-7 z-20"/>
                 <div>
                     <h2 className="mt-36 text-7xl mb-4">opportunity</h2>
-                    <p className="text-4xl font-light max-w-screen-md ml-7">
+                    <p className=" pl-2 py-2 border-l-secondary-500 border-l-4 text-4xl font-light max-w-screen-sm ml-7">
                         We have the opportunity to prevent water access challenges for future generations.
                     </p>
                 </div>
             </div>
-            <div className="bg-secondary-100 justify-end -mt-16 w-9/12 flex font-newsreader pb-28">
-                <div className="text-right mr-32 mt-7">
-                    <h2 className="mt-14 text-7xl mb-4">progress</h2>
+            <div className="bg-green-200 justify-end -mt-16 w-9/12 flex items-start font-newsreader pb-28">
+                <div className="text-right mr-32 mt-7 bg-green-400 p-4 bg-opacity-50">
+                    <h2 className="mt-7 text-7xl mb-4">progress</h2>
                     <p className="text-4xl font-light max-w-screen-lg ml-7">
                         WDRWS was formed in 2021 to <br/>address the growing water needs <br/>of western South Dakota.
                     </p>

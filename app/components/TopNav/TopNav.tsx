@@ -3,7 +3,7 @@ import facebookIcon from "@/public/facebook-icon.png";
 import linkedInIcon from "@/public/linkedin.png";
 import Link from "next/link";
 import Search from "@/app/components/Search";
-import logo from "@/public/main-logo.png";
+import logo from "@/public/wdrws-dark-logo.png";
 
 const TopBar = () => {
     return <div className="bg-secondary-500 flex justify-center">

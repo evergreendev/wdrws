@@ -1,4 +1,4 @@
-import mainLogo from "@/public/WDRWS_MainLogo_White.svg";
+import mainLogo from "@/public/wdrws-white-logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import evergreenLogo from "@/public/evergreen.png";
@@ -12,7 +12,7 @@ const Footer = () => {
             <div className="flex items-center">
                 <div>
                     <Link href="/">
-                        <Image className="w-80" src={mainLogo} alt="Western Dakota Regional Water System"/>
+                        <Image className="w-80 p-4" src={mainLogo} alt="Western Dakota Regional Water System"/>
                     </Link>
                     <p className="pl-4 opacity-60">Copyright WDRWS {currentYear}</p>
                 </div>

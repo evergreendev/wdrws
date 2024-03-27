@@ -19,6 +19,8 @@ const config: Config = {
         'primary-500': '#fecc40',
         'secondary-100': '#e5ecf7',
         'secondary-500': '#178acb',
+        'green-200': '#eff9e8',
+        'green-400': "#b4ca9e",
         'green-500': '#799d4f'
       },
       backgroundImage: {
