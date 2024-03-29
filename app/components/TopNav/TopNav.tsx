@@ -4,6 +4,8 @@ import linkedInIcon from "@/public/linkedin.png";
 import Link from "next/link";
 import Search from "@/app/components/Search";
 import logo from "@/public/wdrws-dark-logo.png";
+import menuItems from "@/app/components/common/menuItems";
+import slugify from "slugify";
 
 const TopBar = () => {
     return <div className="bg-secondary-500 flex justify-center">
@@ -17,7 +19,8 @@ const TopBar = () => {
                     <Image className="size-6" src={linkedInIcon} alt="Follow Us On LinkedIn"/>
                 </Link>
             </div>
-            <Link href="/contact" className="text-white uppercase font-pt_sans text-lg font-bold hover:text-blue-200 transition-colors">Contact</Link>
+            <Link href="/contact"
+                  className="text-white uppercase font-pt_sans text-lg font-bold hover:text-blue-200 transition-colors">Contact</Link>
         </div>
     </div>
 }
@@ -25,10 +28,38 @@ const TopNav = () => {
     return <nav>
         <TopBar/>
         <div className="bg-primary-500 pt-4 pb-10 px-16">
-            <div className="w-full max-w-screen-2xl m-auto">
-                <Link className="w-96 block" href="/">
+            <div className="w-full max-w-screen-2xl m-auto flex items-center">
+                <Link className="w-80 block" href="/">
                     <Image src={logo} alt="Western Dakota Regional Water System"/>
                 </Link>
+                <ul className="
+                mt-8
+                font-pt_sans
+                text-center
+                font-bold
+                text-dark-gray uppercase justify-between text-xl flex w-full max-w-screen-md ml-auto pb-7">
+                        {menuItems.map(item => {
+                            return <li key={item.title} className="relative group w-48">
+                                <Link className="w-full block hover:bg-primary-300" href={item.url || slugify(item.title)}>
+                                    {item.title}
+                                </Link>
+                                {
+                                    item.subMenu
+                                        ? <ul className="shadow-md absolute w-48 border-white border-t-2 bottom-0 translate-y-full origin-top-left bg-primary-500 hidden group-hover:block">
+                                            {item.subMenu.map(subItem => {
+                                                return <li className="text-light-gray hover:bg-primary-300"
+                                                           key={item.title + "-" + subItem.title}>
+                                                    <Link className="p-2 block" href={subItem.url || slugify(subItem.title)}>
+                                                        {subItem.title}
+                                                    </Link>
+                                                </li>
+                                            })}
+                                        </ul>
+                                        : ""
+                                }
+                            </li>
+                        })}
+                </ul>
             </div>
 
         </div>
