@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-        <body className={`${newsreader.variable} ${lato.variable} ${pt_sans.variable}`}>
+        <body className={`${newsreader.variable} ${lato.variable} ${pt_sans.variable} overflow-x-hidden`}>
         <TopNav/>
         {children}
         </body>

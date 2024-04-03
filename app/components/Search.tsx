@@ -111,7 +111,7 @@ const Search = () => {
             if (debouncedSearch){
                 setSearchResultsIsShowing(true);
             }
-        }} className="bg-transparent outline-0 border-b-2 border-white text-white" value={searchVal}
+        }} className="bg-transparent outline-0 border-b-2 border-white text-white w-36" value={searchVal}
                onChange={(e) => setSearchVal(e.target.value)}/>
 
         {

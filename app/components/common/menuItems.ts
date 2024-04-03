@@ -1,4 +1,4 @@
-type menuItem = {
+export type menuItem = {
     title: string,
     url?: string,
     subMenu?: menuItem[]
