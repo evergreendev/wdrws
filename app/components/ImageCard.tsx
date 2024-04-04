@@ -21,7 +21,7 @@ const ImageCard = ({colorScheme, src, text, link, linkStyles, wide}: props) => {
             `}
             src={src} alt=""/>
         <div className={`uppercase
-        ${wide ? "pl-44" : "pl-9"}
+        ${wide ? "md:pl-44" : "pl-9"}
             absolute
             bottom-0
             left-0
