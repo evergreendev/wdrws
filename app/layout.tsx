@@ -2,6 +2,7 @@ import type {Metadata} from "next";
 import "./globals.css";
 import {lato, newsreader, pt_sans} from "@/app/fonts";
 import TopNav from "@/app/components/TopNav";
+import Footer from "@/app/components/Footer";
 
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({
         <body className={`${newsreader.variable} ${lato.variable} ${pt_sans.variable} overflow-x-hidden`}>
         <TopNav/>
         {children}
+        <Footer/>
         </body>
         </html>
     );
