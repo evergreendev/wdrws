@@ -68,7 +68,7 @@ const Results = ({results, totalResults, isLoading, term}: {
     </div>
 }
 
-const Search = ({dark}: { dark: boolean }) => {
+const Search = ({dark}: { dark?: boolean }) => {
     const resultRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
     const [searchVal, setSearchVal] = useState("");
