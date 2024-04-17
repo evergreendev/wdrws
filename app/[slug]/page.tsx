@@ -20,8 +20,8 @@ export default async function Page({params}: { params: { slug: string } }) {
 
     return (
         <main className="font-pt_sans flex-col bg-white">
-            <div className="bg-secondary-500 flex">
-                <h1 className="pl-7 py-7 text-white text-8xl font-newsreader lg:ml-auto lg:w-9/12">{data[0].title.rendered}</h1>
+            <div className="flex">
+                <h1 className="bg-secondary-500 pl-7 py-7 text-white text-7xl font-newsreader lg:ml-auto lg:w-10/12">{data[0].title.rendered}</h1>
             </div>
             <div
                 className="content mx-auto bg-white bg-opacity-60 w-full max-w-screen-lg shadow-lg flex flex-col p-6 pt-12"
