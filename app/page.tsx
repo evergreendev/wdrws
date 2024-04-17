@@ -27,7 +27,7 @@ export default async function Home() {
         <main className="font-pt_sans flex min-h-screen flex-col justify-between bg-white">
             <div
                 className="flex-wrap bg-green-200 max-w-screen-2xl pb-28 sm:ml-36 flex justify-start font-newsreader items-center">
-                <ImageCard wide linkStyles="w-full md:w-6/12 max-w-screen-lg sm:-translate-x-36" colorScheme="yellow"
+                <ImageCard loading="eager" wide linkStyles="w-full md:w-6/12 max-w-screen-lg sm:-translate-x-36" colorScheme="yellow"
                            src={reportImg}
                            link="/annual-report" text="Read the WDRWS Annual Report"/>
                 <div className="z-20 sm:-ml-44 bg-green-400 bg-opacity-50 p-7 border-l-green-500 border-l-8">
