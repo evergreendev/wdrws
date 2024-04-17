@@ -1,12 +1,11 @@
 import {CMS_URL} from "@/constants";
+import {notFound} from "next/navigation";
 
 async function getData(slug:string) {
     const res = await fetch(`${CMS_URL}pages?slug=${slug}`)
 
     if (!res.ok) {
-        console.log("eh")
-        // This will activate the closest `error.js` Error Boundary
-        throw new Error('Failed to fetch data');
+        notFound();
     }
 
     return res.json();
@@ -14,6 +13,10 @@ async function getData(slug:string) {
 
 export default async function Page({ params }: { params: { slug: string } }) {
     const data = await getData(params.slug);
+
+    if (!data[0]){
+        notFound();
+    }
 
     return (
         <main className="font-pt_sans flex min-h-screen bg-white">

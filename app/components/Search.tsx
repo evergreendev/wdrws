@@ -11,7 +11,12 @@ import {generateUrlFromSearchResult} from "@/app/utils/generateUrl";
 import {CMS_URL} from "@/constants";
 
 
-const Results = ({results,totalResults, isLoading,term}: { results: WP_REST_API_Search_Results,totalResults:string, isLoading: boolean, term:string }) => {
+const Results = ({results, totalResults, isLoading, term}: {
+    results: WP_REST_API_Search_Results,
+    totalResults: string,
+    isLoading: boolean,
+    term: string
+}) => {
     let finalResults = results.map(result => {
         return {
             ...result,
@@ -19,13 +24,19 @@ const Results = ({results,totalResults, isLoading,term}: { results: WP_REST_API_
         }
     });
 
-    if (finalResults.length > 5){
+    if (finalResults.length > 5) {
         finalResults.length = 5;
-        finalResults.push({title:`See all results (${totalResults})`,id:"all-search",url:`/search/${term}`} as WP_REST_API_Search_Result)
+        finalResults.push({
+            title: `See all results (${totalResults})`,
+            id: "all-search",
+            url: `/search/${term}`
+        } as WP_REST_API_Search_Result)
     }
 
-    if(isLoading) return <div className="z-50 text-black bg-white absolute bottom-0 left-0 right-0 flex flex-col translate-y-full border-x-slate-100  border-y-transparent border-2">
-        <div className="absolute top-0 left-0 right-0 bottom-0 bg-secondary-100 bg-opacity-50 z-20 flex items-center justify-center">
+    if (isLoading) return <div
+        className="z-50 text-black bg-white absolute bottom-0 left-0 right-0 flex flex-col translate-y-full border-x-slate-100  border-y-transparent border-2">
+        <div
+            className="absolute top-0 left-0 right-0 bottom-0 bg-secondary-100 bg-opacity-50 z-20 flex items-center justify-center">
             <LoadSpinner/>
         </div>
         {
@@ -40,7 +51,8 @@ const Results = ({results,totalResults, isLoading,term}: { results: WP_REST_API_
         }
     </div>;
 
-    if (results.length === 0) return <div className="text-black shadow-md bg-white absolute bottom-0 left-0 right-0 flex flex-col translate-y-full border-x-slate-100  border-y-transparent border-2 p-4 py-2">
+    if (results.length === 0) return <div
+        className="text-black shadow-md bg-white absolute bottom-0 left-0 right-0 flex flex-col translate-y-full border-x-slate-100  border-y-transparent border-2 p-4 py-2">
         No results found
     </div>;
 
@@ -56,8 +68,9 @@ const Results = ({results,totalResults, isLoading,term}: { results: WP_REST_API_
     </div>
 }
 
-const Search = () => {
+const Search = ({dark}: { dark: boolean }) => {
     const resultRef = useRef<HTMLDivElement>(null);
+    const inputRef = useRef<HTMLInputElement>(null);
     const [searchVal, setSearchVal] = useState("");
     const [debouncedSearch] = useDebounce(searchVal, 700);
     const [searchResults, setSearchResults] = useState<WP_REST_API_Search_Results>([]);
@@ -66,14 +79,15 @@ const Search = () => {
     const [totalResults, setTotalResults] = useState("0");
 
     useEffect(() => {
-        if (!debouncedSearch){
+        if (!debouncedSearch) {
             setSearchResults([]);
             return;
         }
+
         async function getSearch() {
             setIsSearching(true);
             setSearchResultsIsShowing(true);
-            const res = await fetch(`${CMS_URL}search?search=${debouncedSearch}`,  { cache: 'no-store' });
+            const res = await fetch(`${CMS_URL}search?search=${debouncedSearch}`, {cache: 'no-store'});
             const totalResults = res.headers.get('X-Wp-Total');
             const data: WP_REST_API_Search_Results = await res.json();
 
@@ -81,7 +95,7 @@ const Search = () => {
 
             setSearchResults(data);
 
-            if (totalResults){
+            if (totalResults) {
                 setTotalResults(totalResults);
             }
 
@@ -99,7 +113,7 @@ const Search = () => {
         };
 
         const handleEscape = (event: KeyboardEvent) => {
-            if (event.key === "Escape"){
+            if (event.key === "Escape") {
                 setSearchResultsIsShowing(false);
             }
         }
@@ -114,17 +128,18 @@ const Search = () => {
 
 
     return <div className="flex relative" ref={resultRef}>
-        <input onFocus={() => {
-            if (debouncedSearch){
+        <input ref={inputRef} onFocus={() => {
+            if (debouncedSearch) {
                 setSearchResultsIsShowing(true);
             }
-        }} className="bg-transparent outline-0 border-b-2 border-white text-white w-36" value={searchVal}
+        }} className={`bg-transparent outline-0 border-b-2 ${dark ? "border-black" : "border-white text-white"}  w-36`} value={searchVal}
                onChange={(e) => setSearchVal(e.target.value)}/>
 
         {
-            searchResultsIsShowing ? <Results term={debouncedSearch} results={searchResults} totalResults={totalResults} isLoading={isSearching}/> : ""
+            searchResultsIsShowing ? <Results term={debouncedSearch} results={searchResults} totalResults={totalResults}
+                                              isLoading={isSearching}/> : ""
         }
-        <Image className="size-6" src={searchIcon} alt="Search"/>
+        <Image onClick={() => inputRef.current?.focus()} className={`size-6 cursor-pointer ${dark ? "invert" : ""}`} src={searchIcon} alt="Search"/>
     </div>
 }
 
