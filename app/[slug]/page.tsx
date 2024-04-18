@@ -1,5 +1,6 @@
 import {CMS_URL} from "@/constants";
 import {notFound} from "next/navigation";
+import purify from "isomorphic-dompurify";
 
 async function getData(slug: string) {
     const res = await fetch(`${CMS_URL}pages?slug=${slug}`,{next: {tags: [slug]}})
@@ -24,8 +25,8 @@ export default async function Page({params}: { params: { slug: string } }) {
                 <h1 className="bg-secondary-500 pl-7 py-7 text-white text-7xl font-newsreader lg:ml-auto lg:w-10/12">{data[0].title.rendered}</h1>
             </div>
             <div
-                className="content mx-auto bg-white bg-opacity-60 w-full max-w-screen-lg shadow-lg flex flex-col p-6 pt-12"
-                    dangerouslySetInnerHTML={{__html: data[0].content.rendered}}/>
+                className="content mx-auto bg-white bg-opacity-60 w-full max-w-screen-2xl shadow-lg flex flex-col p-6 pt-12"
+                    dangerouslySetInnerHTML={{__html: purify.sanitize(data[0].content.rendered)}}/>
         </main>
     );
 }
