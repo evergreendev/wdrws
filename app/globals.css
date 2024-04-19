@@ -103,3 +103,25 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
+@media all and (min-width: 720px) {
+  .wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column {
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+}
+
+
+.content ul{
+  list-style: disc;
+  padding-left: 1rem;
+}
+
+.content ul, .content ol {
+  list-style-position: inside;
+  margin-bottom: 1.5em; }
+
+.content li {
+  line-height: 1.4; }
+
+.content ol ol, .content ol ul, .content ul ul, .content ul ol {
+  margin-left: 1em; }

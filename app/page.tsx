@@ -2,24 +2,10 @@ import ImageCard from "@/app/components/ImageCard";
 import reportImg from "@/public/annual-report.jpg";
 import opportunityImg from "@/public/opportunity.jpg";
 import discoverImg from "@/public/discover.jpg";
-import {CMS_URL} from "@/constants";
 import ColCard from "@/app/components/ColCard";
 import materialsImg from "@/public/technical-sessions.png";
 import newsImg from "@/public/gary-drewes.jpg";
 import aboutImg from "@/public/katie-leclair.jpg";
-
-async function getData() {
-    const res = await fetch(`${CMS_URL}/pages`)
-    // The return value is *not* serialized
-    // You can return Date, Map, Set, etc.
-
-    if (!res.ok) {
-        // This will activate the closest `error.js` Error Boundary
-        throw new Error('Failed to fetch data')
-    }
-
-    return res.json()
-}
 
 export default async function Home() {
 
