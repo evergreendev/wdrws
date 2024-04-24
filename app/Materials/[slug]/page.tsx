@@ -2,7 +2,7 @@ import {CMS_URL} from "@/constants";
 import {notFound} from "next/navigation";
 
 async function getData(slug: string) {
-    const res = await fetch(`${CMS_URL}pages?slug=${slug}`,{next: {tags: [slug]}})
+    const res = await fetch(`${CMS_URL}material?slug=${slug}`,{next: {tags: [slug]}})
 
     if (!res.ok) {
         notFound();
@@ -25,7 +25,7 @@ export default async function Page({params}: { params: { slug: string } }) {
             </div>
             <div
                 className="content mx-auto bg-white bg-opacity-60 w-full max-w-screen-xl shadow-lg flex flex-col p-6 pt-12"
-                    dangerouslySetInnerHTML={{__html: data[0].content.rendered}}/>
+                dangerouslySetInnerHTML={{__html: data[0].content.rendered}}/>
         </main>
     );
 }

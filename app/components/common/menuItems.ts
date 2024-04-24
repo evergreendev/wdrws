@@ -7,7 +7,7 @@ export type menuItem = {
 const menuItems: menuItem[] = [
     {
         title: "Discover",
-        url: "/discover",
+        url: "#",
         subMenu: [
             {
                 title: "Progress"
@@ -25,7 +25,7 @@ const menuItems: menuItem[] = [
     },
     {
         title: "News",
-        url: "/news",
+        url: "#",
         subMenu: [
             {
                 title: "Events"
@@ -37,25 +37,29 @@ const menuItems: menuItem[] = [
     },
     {
         title: "Materials",
-        url: "/materials",
+        url: "#",
         subMenu: [
             {
-                title: "Newsletters"
+                title: "Newsletters",
+                url: "materials/category/newsletter"
             },
             {
-                title: "Technical Sessions"
+                title: "Technical Sessions",
+                url: "materials/category/technical-session"
             },
             {
-                title: "Annual Reports"
+                title: "Annual Reports",
+                url: "materials/category/annual-report"
             },
             {
-                title: "Meeting Agendas"
+                title: "Meeting Agendas",
+                url: "materials/category/meeting-agenda"
             }
         ]
     },
     {
         title: "About Us",
-        url: "/about-us",
+        url: "#",
         subMenu: [
             {
                 title: "Our History"

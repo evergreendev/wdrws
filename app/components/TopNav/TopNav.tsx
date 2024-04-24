@@ -57,7 +57,7 @@ const TopNav = () => {
                                             {item.subMenu.map(subItem => {
                                                 return <li className="text-light-gray hover:bg-primary-300"
                                                            key={item.title + "-" + subItem.title}>
-                                                    <Link className="p-2 block" href={subItem.url || slugify(subItem.title)}>
+                                                    <Link className="p-2 block" href={`/${subItem.url || slugify(subItem.title)}`}>
                                                         {subItem.title}
                                                     </Link>
                                                 </li>

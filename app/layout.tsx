@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-        <body className={`${newsreader.variable} ${lato.variable} ${pt_sans.variable} overflow-x-hidden`}>
+        <body className={`${newsreader.variable} ${lato.variable} ${pt_sans.variable} overflow-x-hidden wp-embed-responsive`}>
         <TopNav/>
         {children}
         <Footer/>

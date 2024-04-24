@@ -23,7 +23,7 @@ body {
     text-wrap: balance;
   }
 }
-.content a{
+.content p>a{
   text-decoration: underline;
 }
 
@@ -125,3 +125,31 @@ body {
 
 .content ol ol, .content ol ul, .content ul ul, .content ul ol {
   margin-left: 1em; }
+
+.content .has-small-font-size{
+  font-size: 0.7em;
+}
+
+.wp-embed-responsive .wp-has-aspect-ratio iframe {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+.wp-block-embed iframe {
+  max-width: 100%;
+}
+.wp-block-embed__wrapper {
+  position: relative;
+}
+.wp-embed-responsive .wp-embed-aspect-16-9 .wp-block-embed__wrapper:before {
+  padding-top: 56.25%;
+}
+.wp-embed-responsive .wp-has-aspect-ratio .wp-block-embed__wrapper:before {
+  content: "";
+  display: block;
+  padding-top: 50%;
+}
