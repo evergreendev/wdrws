@@ -31,7 +31,7 @@ async function getData(slug: string) {
     const category = await getCategory(slug);
 
     if (!category[0]) {
-        console.log(category)
+        console.log("why cat")
         notFound();
     }
     /*TODO add pagination*/
@@ -40,7 +40,7 @@ async function getData(slug: string) {
         {cache: 'no-store', next: {tags: [slug]}})
 
     if (!res.ok) {
-        console.log(res)
+        console.log("why")
         notFound();
     }
 

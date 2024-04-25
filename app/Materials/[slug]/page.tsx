@@ -5,6 +5,7 @@ async function getData(slug: string) {
     const res = await fetch(`${CMS_URL}material?slug=${slug}`,{next: {tags: [slug]}})
 
     if (!res.ok) {
+        console.log("cat slug not found")
         notFound();
     }
 
@@ -15,6 +16,7 @@ export default async function Page({params}: { params: { slug: string } }) {
     const data = await getData(params.slug);
 
     if (!data[0]) {
+        console.log("cat slug empty")
         notFound();
     }
 
