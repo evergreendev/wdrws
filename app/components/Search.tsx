@@ -9,6 +9,7 @@ import Link from "next/link";
 import {useDebounce} from "use-debounce";
 import {generateUrlFromSearchResult} from "@/app/utils/generateUrl";
 import {CMS_URL} from "@/constants";
+import {usePathname} from "next/navigation";
 
 
 const Results = ({results, totalResults, isLoading, term}: {
@@ -125,6 +126,12 @@ const Search = ({dark}: { dark?: boolean }) => {
             window.removeEventListener("mousedown", handleOutSideClick);
         };
     }, [resultRef]);
+
+    const pathname = usePathname();
+
+    useEffect(() => {
+        setSearchResultsIsShowing(false);
+    },[pathname]);
 
 
     return <div className="flex relative" ref={resultRef}>
