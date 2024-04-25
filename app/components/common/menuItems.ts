@@ -27,11 +27,12 @@ const menuItems: menuItem[] = [
         title: "News",
         url: "#",
         subMenu: [
-            {
+            /*{
                 title: "Events"
-            },
+            },*/
             {
-                title: "In The Media"
+                title: "In The Media",
+                url: "news"
             }
         ]
     },
@@ -41,19 +42,19 @@ const menuItems: menuItem[] = [
         subMenu: [
             {
                 title: "Newsletters",
-                url: "materials/category/newsletter"
+                url: "material/category/newsletter"
             },
             {
                 title: "Technical Sessions",
-                url: "materials/category/technical-session"
+                url: "material/category/technical-session"
             },
             {
                 title: "Annual Reports",
-                url: "materials/category/annual-report"
+                url: "material/category/annual-report"
             },
             {
                 title: "Meeting Agendas",
-                url: "materials/category/meeting-agenda"
+                url: "material/category/meeting-agenda"
             }
         ]
     },
