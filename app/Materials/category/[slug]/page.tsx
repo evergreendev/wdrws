@@ -22,7 +22,7 @@ function parseTitleFromSlug(slug: string): string {
 }
 
 async function getCategory(slug: string) {
-    const taxRes = await fetch(`${CMS_URL}material-type?slug=${slug}`, {cache: 'no-store'})
+    const taxRes = await fetch(`${CMS_URL}material-type?slug=${slug}`, {cache: 'no-cache'})
 
     return taxRes.json();
 }
@@ -37,7 +37,7 @@ async function getData(slug: string) {
     /*TODO add pagination*/
     const res = await fetch(
         `${CMS_URL}material?material-type=${category[0].id}&_embed=true`,
-        {cache: 'no-store', next: {tags: [slug]}})
+        {cache: 'no-cache'})
 
     if (!res.ok) {
         console.log("why")
