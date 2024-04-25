@@ -4,10 +4,11 @@ type props = {
     title: string,
     content: string,
     width?: string
-    featuredImg?: any
+    featuredImg?: any,
+    innerHtml?:boolean
 }
 
-const InnerPageContent = ({width,title,content, featuredImg}: props) => {
+const InnerPageContent = ({width,title,content, featuredImg, innerHtml=true}: props) => {
 
     if (!width){
         width = "max-w-screen-xl"
@@ -15,8 +16,8 @@ const InnerPageContent = ({width,title,content, featuredImg}: props) => {
 
     return <main className="font-pt_sans flex-col bg-white">
         <div className="flex">
-            <h1 className="bg-secondary-500 pl-7 py-7 text-white text-7xl font-newsreader lg:ml-auto w-full lg:w-10/12">
-                <span>{title}</span>
+            <h1 className="bg-secondary-500 pl-7 py-7 text-white text-4xl lg:text-6xl font-newsreader lg:ml-auto w-full lg:w-10/12">
+                <span className="max-w-screen-xl block">{title}</span>
             </h1>
         </div>
 
@@ -28,7 +29,17 @@ const InnerPageContent = ({width,title,content, featuredImg}: props) => {
                            src={featuredImg.source_url} alt=""
                            width={featuredImg.media_details.width} height={featuredImg.media_details.height}/> : ""
             }
-            <div dangerouslySetInnerHTML={{__html: content}}/>
+            {
+
+            }
+            {
+                innerHtml ?
+                    <div dangerouslySetInnerHTML={{__html: content}}/> :
+                    <div>
+                        {content}
+                    </div>
+            }
+
         </div>
     </main>
 }
