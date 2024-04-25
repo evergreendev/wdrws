@@ -2,7 +2,7 @@ import {CMS_URL} from "@/constants";
 import {notFound} from "next/navigation";
 
 async function getData(slug: string) {
-    const res = await fetch(`${CMS_URL}material?material-type-slug=${slug}`,{next: {tags: [slug]}})
+    const res = await fetch(`${CMS_URL}material?slug=${slug}`,{next: {tags: [slug]}})
 
     if (!res.ok) {
         notFound();

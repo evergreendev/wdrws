@@ -2,7 +2,6 @@ import Link from 'next/link'
 import Search from "@/app/components/Search";
 
 export default function NotFound() {
-    console.log("Not Found");
     return (
         <div className="bg-white mx-auto p-6 py-14 my-3 shadow-xl w-full max-w-screen-lg">
             <h2 className="font-newsreader text-4xl">Not Found</h2>
