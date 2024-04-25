@@ -13,7 +13,7 @@ export default async function Page({params}: { params: { slug: string } }) {
             <div
                 className="content mx-auto bg-white bg-opacity-60 w-full max-w-screen-xl flex flex-col p-0 pt-12"
             >
-                YOU"RE HERE
+                YOURE HERE
             </div>
         </main>
     );
