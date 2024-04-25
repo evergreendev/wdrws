@@ -1,13 +1,20 @@
 'use client'
 import menuItems, {menuItem} from "@/app/components/common/menuItems";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCircleXmark, faBars} from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import slugify from "slugify";
+import {usePathname} from "next/navigation";
 
 const HamburgerMenu = ({items}: { items: menuItem[] }) => {
     const [isOpen, setIsOpen] = useState(false);
+
+    const pathname = usePathname();
+
+    useEffect(() => {
+        setIsOpen(false);
+    },[pathname]);
 
     return <div className="sm:hidden">
         <button className="z-50 relative p-1 ml-12" onClick={() => {
@@ -32,7 +39,7 @@ const HamburgerMenu = ({items}: { items: menuItem[] }) => {
                 text-dark-gray uppercase justify-between text-xl flex-col w-full gap-2 max-w-screen-md pb-7">
                     {menuItems.map(item => {
                         return <li key={item.title} className="relative group w-48">
-                            <Link className="w-full block hover:bg-primary-300" href={item.url || slugify(item.title)}>
+                            <Link className="w-full block hover:bg-primary-300" href={`/${item.url || slugify(item.title, {lower:true})}`}>
                                 {item.title}
                             </Link>
                             {
@@ -43,7 +50,7 @@ const HamburgerMenu = ({items}: { items: menuItem[] }) => {
                                             return <li className="text-light-gray hover:bg-primary-300"
                                                        key={item.title + "-" + subItem.title}>
                                                 <Link className="p-2 block"
-                                                      href={subItem.url || slugify(subItem.title)}>
+                                                      href={`/${subItem.url || slugify(subItem.title, {lower:true})}`}>
                                                     {subItem.title}
                                                 </Link>
                                             </li>

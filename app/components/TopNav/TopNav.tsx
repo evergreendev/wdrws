@@ -33,7 +33,7 @@ const TopBar = () => {
     </div>
 }
 const TopNav = () => {
-    return <nav className="sticky top-0 sm:static z-50">
+    return <nav className="sticky top-0 sm:static z-40">
         <TopBar/>
         <div className="bg-primary-500 pt-4 pb-10 px-16 hidden sm:block">
             <div className="w-full max-w-screen-2xl m-auto flex items-center">
@@ -41,7 +41,7 @@ const TopNav = () => {
                     <Image src={logo} alt="Western Dakota Regional Water System"/>
                 </Link>
                 <ul className="
-                z-50
+                z-40
                 mt-8
                 font-pt_sans
                 text-center
@@ -49,7 +49,7 @@ const TopNav = () => {
                 text-dark-gray uppercase justify-between text-xl flex w-full gap-2 max-w-screen-md ml-auto pb-7">
                         {menuItems.map(item => {
                             return <li key={item.title} className="relative group w-48 z-50">
-                                <Link className="w-full block hover:bg-primary-300" href={item.url || slugify(item.title)}>
+                                <Link className="w-full block hover:bg-primary-300" href={item.url || slugify(item.title, {lower:true})}>
                                     {item.title}
                                 </Link>
                                 {
@@ -58,7 +58,7 @@ const TopNav = () => {
                                             {item.subMenu.map(subItem => {
                                                 return <li className="text-light-gray hover:bg-primary-300"
                                                            key={item.title + "-" + subItem.title}>
-                                                    <Link className="p-2 block" href={`/${subItem.url || slugify(subItem.title)}`}>
+                                                    <Link className="p-2 block" href={`/${subItem.url || slugify(subItem.title, {lower:true})}`}>
                                                         {subItem.title}
                                                     </Link>
                                                 </li>
