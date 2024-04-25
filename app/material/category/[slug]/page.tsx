@@ -61,7 +61,7 @@ export default async function Page({params}: { params: { slug: string } }) {
             const featuredImg = item._embedded['wp:featuredmedia'][0];
             return <Link
                 className="flex flex-wrap sm:flex-nowrap bg-green-400 bg-opacity-50 hover:bg-opacity-60 items-center text-4xl border-r-8 my-3 border-green-500 font-newsreader font-bold sm:pr-3"
-                href={`/materials/${item.slug}`} key={item.slug}>
+                href={`/material/${item.slug}`} key={item.slug}>
                 <Image className="w-full sm:w-96 mb-6 sm:mr-8 sm:mb-0" src={featuredImg.source_url} alt=""
                        width={featuredImg.media_details.width} height={featuredImg.media_details.height}/>
                 <div className="p-3">
@@ -73,7 +73,7 @@ export default async function Page({params}: { params: { slug: string } }) {
 
         return <Link
             className="flex bg-green-400 bg-opacity-50 hover:bg-opacity-60 p-6 items-center text-4xl border-r-8 my-3 border-green-500 font-newsreader font-bold"
-            href={`/materials/${item.slug}`} key={item.slug}>
+            href={`/material/${item.slug}`} key={item.slug}>
             <div>
                 {item.title.rendered}
                 <p className="font-avenir text-xl">Learn More</p>
@@ -84,7 +84,7 @@ export default async function Page({params}: { params: { slug: string } }) {
     return (
         <main className="font-pt_sans flex-col bg-white">
             <div className="flex">
-                <h1 className="bg-secondary-500 pl-7 py-7 text-white text-7xl font-newsreader lg:ml-auto lg:w-10/12">{parseTitleFromSlug(params.slug)}</h1>
+                <h1 className="bg-secondary-500 pl-7 py-7 text-white text-7xl font-newsreader lg:ml-auto w-full lg:w-10/12">{parseTitleFromSlug(params.slug)}</h1>
             </div>
             <div
                 className="content mx-auto bg-white bg-opacity-60 w-full max-w-screen-xl flex flex-col p-0 pt-12"
