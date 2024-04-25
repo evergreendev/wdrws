@@ -31,6 +31,7 @@ async function getData(slug: string) {
     const category = await getCategory(slug);
 
     if (!category[0]) {
+        console.log(category)
         notFound();
     }
     /*TODO add pagination*/
@@ -39,6 +40,7 @@ async function getData(slug: string) {
         {cache: 'no-store', next: {tags: [slug]}})
 
     if (!res.ok) {
+        console.log(res)
         notFound();
     }
 
@@ -52,6 +54,7 @@ export default async function Page({params}: { params: { slug: string } }) {
     const data = await getData(params.slug);
 
     if (!data.data[0]) {
+        console.log("not found");
         notFound();
     }
 
