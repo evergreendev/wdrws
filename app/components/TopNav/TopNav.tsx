@@ -41,19 +41,20 @@ const TopNav = () => {
                     <Image src={logo} alt="Western Dakota Regional Water System"/>
                 </Link>
                 <ul className="
+                z-50
                 mt-8
                 font-pt_sans
                 text-center
                 font-bold
                 text-dark-gray uppercase justify-between text-xl flex w-full gap-2 max-w-screen-md ml-auto pb-7">
                         {menuItems.map(item => {
-                            return <li key={item.title} className="relative group w-48">
+                            return <li key={item.title} className="relative group w-48 z-50">
                                 <Link className="w-full block hover:bg-primary-300" href={item.url || slugify(item.title)}>
                                     {item.title}
                                 </Link>
                                 {
                                     item.subMenu
-                                        ? <ul className="shadow-md absolute w-48 border-white border-t-2 bottom-0 translate-y-full origin-top-left bg-primary-500 hidden group-hover:block">
+                                        ? <ul className="shadow-md z-50 absolute w-48 border-white border-t-2 bottom-0 translate-y-full origin-top-left bg-primary-500 hidden group-hover:block">
                                             {item.subMenu.map(subItem => {
                                                 return <li className="text-light-gray hover:bg-primary-300"
                                                            key={item.title + "-" + subItem.title}>
