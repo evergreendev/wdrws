@@ -1,5 +1,5 @@
 'use client'
-import menuItems, {menuItem} from "@/app/components/common/menuItems";
+import menuItems from "@/app/components/common/menuItems";
 import {useEffect, useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCircleXmark, faBars} from "@fortawesome/free-solid-svg-icons";
@@ -7,7 +7,7 @@ import Link from "next/link";
 import slugify from "slugify";
 import {usePathname} from "next/navigation";
 
-const HamburgerMenu = ({items}: { items: menuItem[] }) => {
+const HamburgerMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const pathname = usePathname();
@@ -17,7 +17,7 @@ const HamburgerMenu = ({items}: { items: menuItem[] }) => {
     },[pathname]);
 
     return <div className="sm:hidden">
-        <button className="z-50 relative p-1 ml-12" onClick={() => {
+        <button title="Main Menu"  className="z-50 relative p-1 ml-12" onClick={() => {
             setIsOpen(!isOpen)
         }}>
             {

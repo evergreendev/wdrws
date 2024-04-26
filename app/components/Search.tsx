@@ -135,7 +135,7 @@ const Search = ({dark}: { dark?: boolean }) => {
 
 
     return <div className="flex relative" ref={resultRef}>
-        <input ref={inputRef} onFocus={() => {
+        <input aria-label="Search" ref={inputRef} onFocus={() => {
             if (debouncedSearch) {
                 setSearchResultsIsShowing(true);
             }
