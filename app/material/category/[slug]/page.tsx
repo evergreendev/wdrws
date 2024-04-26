@@ -55,7 +55,7 @@ export default async function Page({params}: { params: { slug: string } }) {
         notFound();
     }
 
-    const items = await PostList(data.data);
+    const items = await PostList(data.data, "material");
 
     return (
         <InnerPageContent width="LG" isContent={false} title={parseTitleFromSlug(params.slug)} content={items}/>

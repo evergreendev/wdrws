@@ -28,7 +28,7 @@ export default async function Page() {
         notFound();
     }
 
-    const items = await PostList(data.data);
+    const items = await PostList(data.data,"news");
 
     return (
         <InnerPageContent width="LG" title="News" content={items} isContent={false}/>
