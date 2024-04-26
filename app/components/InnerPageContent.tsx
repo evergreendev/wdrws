@@ -22,7 +22,7 @@ const InnerPageContent = ({width,title,content, featuredImg, innerHtml=true}: pr
         </div>
 
         <div
-            className={`content mx-auto bg-white bg-opacity-60 w-full ${width} shadow-lg flex flex-col p-6 pt-12`}>
+            className={`content mx-auto bg-white bg-opacity-60 w-full ${width} shadow-lg flex flex-col p-6 pt-12 text-xl`}>
             {
                 featuredImg ?
                     <Image style={{maxWidth: featuredImg.media_details.width + "px"}} className={`w-full mb-6 sm:mr-8`}

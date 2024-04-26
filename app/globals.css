@@ -50,7 +50,13 @@ body {
 
 
 .content p{
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem;
+  max-width: 65ch;
+
+}
+
+.wp-block-columns{
+  gap: 2rem;
 }
 
 .content .wp-block-image{
@@ -134,7 +140,9 @@ body {
   margin-bottom: 1.5em; }
 
 .content li {
-  line-height: 1.4; }
+  line-height: 1.4;
+  margin-bottom: .5em;
+}
 
 .content ol ol, .content ol ul, .content ul ul, .content ul ol {
   margin-left: 1em; }
@@ -165,4 +173,7 @@ body {
   content: "";
   display: block;
   padding-top: 50%;
+}
+.has-primary-color {
+  color: var(--wp--preset--color--primary) !important;
 }
