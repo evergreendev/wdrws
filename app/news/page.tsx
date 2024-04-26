@@ -1,10 +1,10 @@
 import {CMS_URL} from "@/constants";
 import {notFound} from "next/navigation";
-import Link from "next/link";
-import Image from "next/image";
 import InnerPageContent from "@/app/components/InnerPageContent";
+import {WP_REST_API_Post} from "wp-types";
+import PostList from "@/app/components/PostList";
 
-async function getData() {
+async function getData() : Promise<{data: WP_REST_API_Post[], totalPages: string|null}> {
 
     /*TODO add pagination*/
     const res = await fetch(
@@ -28,33 +28,9 @@ export default async function Page() {
         notFound();
     }
 
-    const items = data.data.map(async (item: any) => {
-
-        if (item._embedded?.['wp:featuredmedia']) {
-            const featuredImg = item._embedded['wp:featuredmedia'][0];
-            return <Link
-                className="flex flex-wrap sm:flex-nowrap bg-green-400 bg-opacity-50 hover:bg-opacity-60 items-center text-4xl border-r-8 my-3 border-green-500 font-newsreader font-bold sm:pr-3"
-                href={`/news/${item.slug}`} key={item.slug}>
-                <Image className="w-full sm:w-96 mb-6 sm:mr-8 sm:mb-0" src={featuredImg.source_url} alt=""
-                       width={featuredImg.media_details.width} height={featuredImg.media_details.height}/>
-                <div className="p-3">
-                    {item.title.rendered}
-                    <p className="font-avenir text-xl">Learn More</p>
-                </div>
-            </Link>
-        }
-
-        return <Link
-            className="flex bg-green-400 bg-opacity-50 hover:bg-opacity-60 p-6 items-center text-4xl border-r-8 my-3 border-green-500 font-newsreader font-bold"
-            href={`/news/${item.slug}`} key={item.slug}>
-            <div>
-                {item.title.rendered}
-                <p className="font-avenir text-xl">Learn More</p>
-            </div>
-        </Link>
-    })
+    const items = await PostList(data.data);
 
     return (
-        <InnerPageContent width="LG" title="News" content={items} isContent={false} innerHtml={false}/>
+        <InnerPageContent width="LG" title="News" content={items} isContent={false}/>
     );
 }

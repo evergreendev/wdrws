@@ -1,15 +1,15 @@
 import Image from "next/image";
+import {ReactElement} from "react";
 
 type props = {
     title: string,
-    content: string,
+    content: string|ReactElement|ReactElement[],
     isContent?: boolean,
     width: "SM"|"MD"|"LG"|"XL"|"2XL"
-    featuredImg?: any,
-    innerHtml?:boolean
+    featuredImg?: any
 }
 
-const InnerPageContent = ({width,title,content, isContent=true, featuredImg, innerHtml=true}: props) => {
+const InnerPageContent = ({width,title,content, isContent=true, featuredImg}: props) => {
     const widthDict = {
         Default: "max-w-screen-xl",
         SM: "max-w-screen-sm",
@@ -22,7 +22,7 @@ const InnerPageContent = ({width,title,content, isContent=true, featuredImg, inn
     return <main className="font-pt_sans flex-col bg-white">
         <div className="flex">
             <h1 className="bg-secondary-500 pl-7 py-7 text-white text-4xl lg:text-6xl font-newsreader lg:ml-auto w-full lg:w-10/12">
-                <span className="max-w-screen-xl block">{title}</span>
+                <span className="max-w-screen-xl block" dangerouslySetInnerHTML={{__html: title}}/>
             </h1>
         </div>
 
@@ -36,7 +36,7 @@ const InnerPageContent = ({width,title,content, isContent=true, featuredImg, inn
             }
 
             {
-                innerHtml ?
+                typeof content === "string" ?
                     <div dangerouslySetInnerHTML={{__html: content}}/> :
                     <div>
                         {content}
