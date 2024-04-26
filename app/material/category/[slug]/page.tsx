@@ -83,6 +83,6 @@ export default async function Page({params}: { params: { slug: string } }) {
     })
 
     return (
-        <InnerPageContent isContent={false} title={parseTitleFromSlug(params.slug)} content={items} innerHtml={false}/>
+        <InnerPageContent width="LG" isContent={false} title={parseTitleFromSlug(params.slug)} content={items} innerHtml={false}/>
     );
 }

@@ -19,9 +19,11 @@ export default async function Page({params}: { params: { slug: string } }) {
         notFound();
     }
 
+    const containerWidth = data[0]?.acf?.page_container_width ? data[0].acf.page_container_width : "SM";
+
     const featuredImg = data[0]?._embedded?.['wp:featuredmedia']?.[0];
 
     return (
-        <InnerPageContent width="max-w-screen-md" title={data[0].title.rendered} content={data[0].content.rendered} featuredImg={featuredImg}/>
+        <InnerPageContent width={containerWidth === "Default" ? "SM" : containerWidth} title={data[0].title.rendered} content={data[0].content.rendered} featuredImg={featuredImg}/>
     );
 }

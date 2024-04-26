@@ -55,6 +55,6 @@ export default async function Page() {
     })
 
     return (
-        <InnerPageContent title="News" content={items} isContent={false} innerHtml={false}/>
+        <InnerPageContent width="LG" title="News" content={items} isContent={false} innerHtml={false}/>
     );
 }
