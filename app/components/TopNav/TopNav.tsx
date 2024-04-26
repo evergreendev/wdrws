@@ -28,7 +28,7 @@ const TopBar = () => {
             </div>
             <Link href="/contact"
                   className="hidden sm:block text-white uppercase font-pt_sans text-lg font-bold hover:text-blue-200 transition-colors">Contact</Link>
-            <HamburgerMenu items={menuItems}/>
+            <HamburgerMenu/>
         </div>
     </div>
 }
