@@ -53,7 +53,7 @@ export default async function Home() {
                            link="/discover"/>{/*todo all links on homepage*/}
             </div>
             <div className="w-full max-w-screen-xl m-auto -translate-y-20 flex flex-wrap justify-around">
-                <ColCard styles="lg:w-[31%] max-w-96 w-full mb-7" textClass="text-primary-500"
+                <ColCard url="/material/category/technical-session" styles="lg:w-[31%] max-w-96 w-full mb-7" textClass="text-primary-500"
                          borderClass="border-primary-500"
                          src={materialsImg} header="Materials" subHeader="Technical Sessions"
                          text="The anatomy of regional water projects" items={[
@@ -68,7 +68,7 @@ export default async function Home() {
                         src: discoverImg
                     }
                 ]}/>
-                <ColCard styles="lg:w-[31%] max-w-96 w-full mb-7" textClass="text-secondary-500"
+                <ColCard url="/news" styles="lg:w-[31%] max-w-96 w-full mb-7" textClass="text-secondary-500"
                          borderClass="border-t-secondary-500"
                          src={newsImg} header="News" subHeader="In the Media" text="Congratulations to @Gary Drewes for being appointed to the SD State Water Management Board
 " items={[
@@ -78,7 +78,7 @@ export default async function Home() {
                         src: discoverImg
                     }
                 ]}/>
-                <ColCard styles="lg:w-[31%] max-w-96 w-full mb-7" textClass="text-green-500"
+                <ColCard url="/katie-profile" styles="lg:w-[31%] max-w-96 w-full mb-7" textClass="text-green-500"
                          borderClass="border-green-500" src={aboutImg}
                          header="About Us" subHeader="Team Profile"
                          text="Introducing Katie LeClair, the new Operations Manager of WDRWS" items={[
