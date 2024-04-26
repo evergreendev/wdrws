@@ -3,12 +3,13 @@ import Image from "next/image";
 type props = {
     title: string,
     content: string,
+    isContent?: boolean,
     width?: string
     featuredImg?: any,
     innerHtml?:boolean
 }
 
-const InnerPageContent = ({width,title,content, featuredImg, innerHtml=true}: props) => {
+const InnerPageContent = ({width,title,content, isContent=true, featuredImg, innerHtml=true}: props) => {
 
     if (!width){
         width = "max-w-screen-xl"
@@ -22,16 +23,14 @@ const InnerPageContent = ({width,title,content, featuredImg, innerHtml=true}: pr
         </div>
 
         <div
-            className={`content mx-auto bg-white bg-opacity-60 w-full ${width} shadow-lg flex flex-col p-6 pt-12 text-xl`}>
+            className={`${isContent ? "content" : ""} mx-auto bg-white bg-opacity-60 w-full ${width} shadow-lg flex flex-col p-6 pt-12 text-xl`}>
             {
                 featuredImg ?
                     <Image style={{maxWidth: featuredImg.media_details.width + "px"}} className={`w-full mb-6 sm:mr-8`}
                            src={featuredImg.source_url} alt=""
                            width={featuredImg.media_details.width} height={featuredImg.media_details.height}/> : ""
             }
-            {
 
-            }
             {
                 innerHtml ?
                     <div dangerouslySetInnerHTML={{__html: content}}/> :
