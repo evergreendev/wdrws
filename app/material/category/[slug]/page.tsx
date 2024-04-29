@@ -29,7 +29,6 @@ async function getCategory(slug: string) {
 
 async function getData(slug: string) {
     const category = await getCategory(slug);
-
     if (!category[0]) {
         notFound();
     }
