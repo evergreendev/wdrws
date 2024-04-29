@@ -26,7 +26,7 @@ export default async function Home() {
             <div
                 className="md:-mt-16 md:ml-24 w-11/12 max-w-screen-2xl self-center flex flex-wrap md:flex-nowrap font-newsreader">
                 <ImageCard colorScheme="blue" src={opportunityImg} linkStyles="w-full md:w-5/12 max-w-lg md:mb-24"
-                           text="Learn more about the water needs of western South Dakota" link="/about"/>
+                           text="Learn more about the water needs of western South Dakota" link="/drought"/>
                 <div
                     className="hidden md:block bg-black bg-opacity-20 border-t-[64px] border-b-[64px] w-0.5 mx-7 z-20"/>
                 <div className="p-7 self-center mb-12 sm:mb-0">
@@ -50,7 +50,7 @@ export default async function Home() {
                 <ImageCard linkStyles="w-full lg:w-4/12 max-w-lg max-w-lg lg:-mt-24" colorScheme="yellow"
                            src={discoverImg}
                            text="Discover what the WDRWS has accomplished so far"
-                           link="/discover"/>{/*todo all links on homepage*/}
+                           link="/progress"/>
             </div>
             <div className="w-full max-w-screen-xl m-auto -translate-y-20 flex flex-wrap justify-around">
                 <ColCard url="/material/category/technical-session" styles="lg:w-[31%] max-w-96 w-full mb-7" textClass="text-primary-500"
@@ -71,13 +71,7 @@ export default async function Home() {
                 <ColCard url="/news" styles="lg:w-[31%] max-w-96 w-full mb-7" textClass="text-secondary-500"
                          borderClass="border-t-secondary-500"
                          src={newsImg} header="News" subHeader="In the Media" text="Congratulations to @Gary Drewes for being appointed to the SD State Water Management Board
-" items={[
-                    {
-                        title: "Events",
-                        url: "/events",
-                        src: discoverImg
-                    }
-                ]}/>
+" items={[]}/>
                 <ColCard url="/katie-profile" styles="lg:w-[31%] max-w-96 w-full mb-7" textClass="text-green-500"
                          borderClass="border-green-500" src={aboutImg}
                          header="About Us" subHeader="Team Profile"
