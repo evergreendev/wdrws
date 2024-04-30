@@ -2,6 +2,7 @@ import {CMS_URL} from "@/constants";
 import {notFound} from "next/navigation";
 import InnerPageContent from "@/app/components/InnerPageContent";
 import PostList from "@/app/components/PostList";
+import {Metadata, ResolvingMetadata} from "next";
 
 function parseTitleFromSlug(slug: string): string {
     let capitalizeNext = true;
@@ -25,6 +26,14 @@ async function getCategory(slug: string) {
     const taxRes = await fetch(`${CMS_URL}material-type?slug=${slug}`, {cache: 'no-store'})
 
     return taxRes.json();
+}
+
+export async function generateMetadata({params}: { params: { slug: string } }, parent: ResolvingMetadata): Promise<Metadata> {
+
+    return {
+        title: "West Dakota Regional Water System - " + parseTitleFromSlug(params.slug),
+        description: "Ensuring quality, abundant water to all corners of western South Dakota",
+    }
 }
 
 async function getData(slug: string) {
