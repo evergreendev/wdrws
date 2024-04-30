@@ -56,7 +56,8 @@ export const sendMail = async (prevState: any, formData: FormData) => {
     try {
         await transporter.sendMail({
             from: adminMail,
-            to: email as string,
+            to: "cheryl.chapman@wdrws.org",
+            replyTo: email as string,
             subject: `New Contact form submission from ${firstName} ${lastName} (wdrws.org)`,
             html: `
             <!DOCTYPE html >
@@ -68,6 +69,36 @@ export const sendMail = async (prevState: any, formData: FormData) => {
 <div style="padding:20px;">
 <div style="max-width: 500px;">
 <p>
+Name: ${firstName} ${lastName} <br/>
+Email: ${email} <br/>
+Phone: ${phone} <br/>
+</p>
+<p>
+${message}
+</p>
+</div>
+</div>
+</body>
+</html>
+            `
+        });
+//confirmation email
+        await transporter.sendMail({
+            from: adminMail,
+            to: email as string,
+            replyTo: adminMail,
+            subject: `Contact form submission confirmation (wdrws.org)`,
+            html: `
+            <!DOCTYPE html >
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>test</title>
+</head>
+<body>
+<div style="padding:20px;">
+<div style="max-width: 500px;">
+<p>
+This is to acknowledge your recent contact form submission from (WDRWS.org)<br/>
 Name: ${firstName} ${lastName} <br/>
 Email: ${email} <br/>
 Phone: ${phone} <br/>
