@@ -1,6 +1,5 @@
 import Image from "next/image";
 import facebookIcon from "@/public/facebook-icon.png";
-import linkedInIcon from "@/public/linkedin.png";
 import Link from "next/link";
 import Search from "@/app/components/Search";
 import logo from "@/public/wdrws-dark-logo.png";
@@ -21,9 +20,6 @@ const TopBar = () => {
             <div className="mx-20 hidden sm:flex">
                 <Link className="mx-3" href="https://www.facebook.com/westsdwater">
                     <Image className="size-6" src={facebookIcon} alt="Follow Us On Facebook"/>
-                </Link>
-                <Link href="">
-                    <Image className="size-6" src={linkedInIcon} alt="Follow Us On LinkedIn"/>
                 </Link>
             </div>
             <Link href="/contact"
@@ -47,30 +43,32 @@ const TopNav = () => {
                 text-center
                 font-bold
                 text-dark-gray uppercase justify-between text-xl flex w-full gap-2 max-w-screen-md ml-auto pb-7">
-                        {menuItems.map(item => {
-                            return <li key={item.title} className="relative group w-48 z-50">
-                                <Link className="w-full block hover:bg-primary-300" href={item.url || slugify(item.title, {lower:true})}>
-                                    {item.title}
-                                </Link>
-                                {
-                                    item.subMenu
-                                        ? <ul className="shadow-md z-50 absolute w-48 border-white border-t-2 bottom-0 translate-y-full origin-top-left bg-primary-500 hidden group-hover:block">
-                                            {item.subMenu.map(subItem => {
-                                                return <li className="text-light-gray hover:bg-primary-300"
-                                                           key={item.title + "-" + subItem.title}>
-                                                    <Link className="p-2 block" href={`/${subItem.url || slugify(subItem.title, {lower:true})}`}>
-                                                        {subItem.title}
-                                                    </Link>
-                                                </li>
-                                            })}
-                                        </ul>
-                                        : ""
-                                }
-                            </li>
-                        })}
+                    {menuItems.map(item => {
+                        return <li key={item.title} className="relative group w-48 z-50">
+                            <Link className="w-full block hover:bg-primary-300"
+                                  href={item.url || slugify(item.title, {lower: true})}>
+                                {item.title}
+                            </Link>
+                            {
+                                item.subMenu
+                                    ?
+                                    <ul className="shadow-md z-50 absolute w-48 border-white border-t-2 bottom-0 translate-y-full origin-top-left bg-primary-500 hidden group-hover:block">
+                                        {item.subMenu.map(subItem => {
+                                            return <li className="text-light-gray hover:bg-primary-300"
+                                                       key={item.title + "-" + subItem.title}>
+                                                <Link className="p-2 block"
+                                                      href={`/${subItem.url || slugify(subItem.title, {lower: true})}`}>
+                                                    {subItem.title}
+                                                </Link>
+                                            </li>
+                                        })}
+                                    </ul>
+                                    : ""
+                            }
+                        </li>
+                    })}
                 </ul>
             </div>
-
         </div>
     </nav>
 }
