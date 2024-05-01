@@ -45,9 +45,7 @@ const Results = ({results, totalResults, isLoading, term}: {
         }
         {
             finalResults.map(result => {
-                return <Link className="p-4 py-2 hover:bg-secondary-100" href={result.url} key={result.id}>
-                    {result.title}
-                </Link>
+                return <Link dangerouslySetInnerHTML={{__html: result.title}} className="p-4 py-2 hover:bg-secondary-100" href={result.url} key={result.id}/>
             })
         }
     </div>;
@@ -61,9 +59,7 @@ const Results = ({results, totalResults, isLoading, term}: {
         className="z-50 shadow-md text-black bg-white absolute bottom-0 left-0 right-0 flex flex-col translate-y-full border-x-slate-100  border-y-transparent border-2">
         {
             finalResults.map(result => {
-                return <Link className="p-4 py-2 hover:bg-secondary-100" href={result.url} key={result.id}>
-                    {result.title}
-                </Link>
+                return <Link dangerouslySetInnerHTML={{__html: result.title}} className="p-4 py-2 hover:bg-secondary-100" href={result.url} key={result.id}/>
             })
         }
     </div>
