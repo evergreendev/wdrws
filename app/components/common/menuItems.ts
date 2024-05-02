@@ -68,12 +68,12 @@ const menuItems: menuItem[] = [
             {
                 title: "The Board"
             },
-            {
+/*            {
                 title: "The Team"
             },
             {
                 title: "Katie Profile"
-            },
+            },*/
             {
                 title: "Consulting Team Profiles"
             }
