@@ -177,3 +177,13 @@ body {
 .has-primary-color {
   color: var(--wp--preset--color--primary) !important;
 }
+
+.content .alignleft{
+  float: left;
+}
+.content .alignright{
+  float: right;
+}
+.content .aligncenter{
+  margin: 0 auto;
+}
