@@ -14,7 +14,7 @@ export default async function Home() {
         <main className="font-pt_sans flex min-h-screen flex-col justify-between bg-white">
             <div className="bg-hero bg-cover min-h-[30vh] relative">
                 <div className="w-full bg-white bg-opacity-60 max-w-screen-xl lg:max-w-screen-xl mx-auto py-10 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
-                    <h2 className="font-newsreader text-6xl text-center">Working to bring quality, abundant water to all corners of
+                    <h2 className="font-newsreader text-3xl sm:text-6xl text-center">Working to bring quality, abundant water to all corners of
                         western South Dakota.</h2>
                 </div>
             </div>
