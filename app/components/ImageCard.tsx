@@ -9,10 +9,13 @@ type props = {
     link: string,
     linkStyles?: string,
     loading?: "eager" | "lazy" | undefined
+    transparent?:boolean
 }
 
-const ImageCard = ({colorScheme, src, text, link, linkStyles, wide,loading}: props) => {
-    return <Link href={link} className={`font-avenir font-bold border-t-[20px] overflow-hidden
+const ImageCard = ({colorScheme, src, text, link, linkStyles, wide,loading,transparent=false}: props) => {
+    return <Link href={link} className={`font-avenir font-bold 
+    ${transparent ? "" : "border-t-[20px]" }
+    overflow-hidden
     ${colorScheme === "yellow" ? "border-primary-500" : "border-secondary-500"}
     relative
     block

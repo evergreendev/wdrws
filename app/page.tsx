@@ -12,11 +12,12 @@ export default async function Home() {
     return (
         <main className="font-pt_sans flex min-h-screen flex-col justify-between bg-white">
             <div
-                className="flex-wrap bg-green-200 max-w-screen-2xl pb-28 sm:ml-36 flex justify-start font-newsreader items-center">
-                <ImageCard loading="eager" wide linkStyles="w-full md:w-6/12 max-w-screen-lg sm:-translate-x-36" colorScheme="yellow"
+                className="flex-wrap bg-green-200 max-w-screen-2xl pb-28 sm:mx-auto flex justify-start font-newsreader items-center">
+                <ImageCard loading="eager" wide linkStyles="w-full md:w-6/12 max-w-screen-lg xl:-translate-x-36" colorScheme="yellow"
                            src={reportImg}
+                           transparent
                            link="/annual-report" text="Read the WDRWS Annual Report"/>
-                <div className="z-20 sm:-ml-44 bg-green-400 bg-opacity-50 p-7 border-l-green-500 border-l-8">
+                <div className="z-20 xl:-ml-36 p-7 bg-green-400 bg-opacity-50">
                     <h2 className="text-4xl sm:text-7xl sm:mb-4">purpose</h2>
                     <p className="pl-2 py-2 sm:text-4xl text-lg sm:ml-14 font-light max-w-screen-sm">
                         Ensuring quality, abundant water to all corners of western South Dakota
@@ -27,8 +28,8 @@ export default async function Home() {
                 className="md:-mt-16 md:ml-24 w-11/12 max-w-screen-2xl self-center flex flex-wrap md:flex-nowrap font-newsreader">
                 <ImageCard colorScheme="blue" src={opportunityImg} linkStyles="w-full md:w-5/12 max-w-lg md:mb-24"
                            text="Learn more about the water needs of western South Dakota" link="/drought"/>
-                <div
-                    className="hidden md:block bg-black bg-opacity-20 border-t-[64px] border-b-[64px] w-0.5 mx-7 z-20"/>
+                {/*<div
+                    className="hidden md:block bg-black bg-opacity-20 border-t-[64px] border-b-[64px] w-0.5 mx-7 z-20"/>*/}
                 <div className="p-7 self-center mb-12 sm:mb-0">
                     <h2 className="text-4xl sm:text-7xl mb-4">opportunity</h2>
                     <p className=" pl-2 py-2 sm:text-4xl text-lg font-light max-w-screen-sm ml-7">
