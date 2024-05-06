@@ -27,6 +27,7 @@ const config: Config = {
         'green-500': '#799d4f'
       },
       backgroundImage: {
+        "hero": "url('../public/hero.jpg')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",

@@ -6,11 +6,49 @@ import ColCard from "@/app/components/ColCard";
 import materialsImg from "@/public/technical-sessions.png";
 import newsImg from "@/public/gary-drewes.jpg";
 import aboutImg from "@/public/katie-leclair.jpg";
+import Link from "next/link";
 
 export default async function Home() {
 
     return (
         <main className="font-pt_sans flex min-h-screen flex-col justify-between bg-white">
+            <div className="bg-hero bg-cover min-h-[30vh] relative">
+                <div className="w-full bg-white bg-opacity-60 max-w-screen-xl lg:max-w-screen-xl mx-auto py-10 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
+                    <h2 className="font-newsreader text-6xl text-center">Working to bring quality, abundant water to all corners of
+                        western South Dakota.</h2>
+                </div>
+            </div>
+
+            <div className="w-full flex mb-6 flex-wrap">
+                <Link href="/membership"
+                      className="bg-green-500 xl:w-[33%] grow text-white flex flex-col justify-start px-8 py-4">
+                <div className="sm:w-96 mx-auto">
+                        <h2 className="font-newreader text-3xl text-center font-bold mb-2">
+                            Get Involved
+                        </h2>
+                        <p className="text-center text-xl">Take your seat at the table
+                            to discuss the future water needs of your community.</p>
+                    </div>
+                </Link>
+                <Link href="/material/category/newsletter" className="bg-primary-500 xl:w-[33%] grow text-black flex flex-col justify-start px-8  py-4">
+                    <div className="sm:w-96 mx-auto">
+                        <h2 className="font-newreader text-3xl text-center font-bold mb-2">
+                            Stay Informed
+                        </h2>
+                        <p className="text-center text-xl">Keep up to date on the latest from WDRWS with our
+                            newsletter</p>
+                    </div>
+                </Link>
+                <Link href="/our-history"
+                      className="bg-secondary-500 xl:w-[33%] grow text-white flex flex-col justify-start px-8  py-4">
+                    <div className="sm:w-96 mx-auto">
+                        <h2 className="font-newreader text-3xl text-center font-bold mb-2">
+                            History
+                        </h2>
+                        <p className="text-center text-xl">Learn more about WDRWS formation, purpose, and mission</p>
+                    </div>
+                </Link>
+            </div>
             <div
                 className="flex-wrap bg-green-200 max-w-screen-2xl pb-28 sm:mx-auto flex justify-start font-newsreader items-center">
                 <ImageCard loading="eager" wide linkStyles="w-full md:w-6/12 max-w-screen-lg xl:-translate-x-36" colorScheme="yellow"
