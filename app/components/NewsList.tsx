@@ -44,7 +44,7 @@ const PostList = async (items: WP_REST_API_Post[], category: string) => {
                 <h2 className="font-bold text-3xl mt-8">{month.month + " " + month.year}</h2>
             }
             <Link
-                className="max-w-screen-md flex flex-wrap sm:flex-nowrap hover:bg-opacity-60 text-2xl my-2 border-green-500 font-newsreader font-bold sm:pr-0"
+                className="max-w-screen-md flex flex-wrap sm:flex-nowrap hover:bg-opacity-60 text-xl underline my-2 border-green-500 font-newsreader sm:pr-0"
                 href={outsideLink ? outsideLink :`/${category}/${item.slug}`} key={item.slug}>
                 <div className="p-2 flex-grow flex-col flex">
                     <div className="my-auto" dangerouslySetInnerHTML={{__html: item.title.rendered + " | " + formattedDate}}/>
