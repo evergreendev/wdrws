@@ -26,12 +26,12 @@ function getMonth(date: string) {
 }
 
 
-
 const PostList = async (items: WP_REST_API_Post[], category: string) => {
     const seenMonth = new Set<string>();
 
     return await Promise.all(items.map(async (item) => {
         const month = getMonth(item.date);
+        console.log("month", month);
         const shouldPrintMonth = !seenMonth.has(month.month + month.year);
 
         seenMonth.add(month.month + month.year);
@@ -42,7 +42,7 @@ const PostList = async (items: WP_REST_API_Post[], category: string) => {
                 <>
                     {
                         category === "news" && shouldPrintMonth &&
-                            <h2 className="font-bold text-2xl">{month.month + " " + month.year}</h2>
+                        <h2 className="font-bold text-2xl">{month.month + " " + month.year}</h2>
                     }
                     <Link
                         className="max-w-screen-md mx-auto flex shadow-sm flex-wrap sm:flex-nowrap bg-secondary-100 bg-opacity-50 hover:bg-opacity-60 text-3xl my-8 border-green-500 font-newsreader font-bold sm:pr-0"
@@ -58,18 +58,25 @@ const PostList = async (items: WP_REST_API_Post[], category: string) => {
                         </div>
                     </Link>
                 </>
-                )
+            )
         }
 
-        return <Link
-            className="max-w-screen-md mx-auto flex shadow-sm flex-wrap sm:flex-nowrap bg-secondary-100 bg-opacity-50 hover:bg-opacity-60 text-3xl my-8 border-green-500 font-newsreader font-bold sm:pr-0"
-            href={`/${category}/${item.slug}`} key={item.slug}>
-            <div className="p-2 flex-grow flex-col flex">
-                <div className="my-auto" dangerouslySetInnerHTML={{__html: item.title.rendered}}/>
-                <p className="mt-4 ml-auto font-avenir text-2xl bg-primary-500 flex px-6 py-1 rounded text-right">Learn
-                    More</p>
-            </div>
-        </Link>
+        return <>
+            {
+                category === "news" && shouldPrintMonth &&
+                <h2 className="font-bold text-2xl">{month.month + " " + month.year}</h2>
+            }
+            <Link
+                className="max-w-screen-md mx-auto flex shadow-sm flex-wrap sm:flex-nowrap bg-secondary-100 bg-opacity-50 hover:bg-opacity-60 text-3xl my-8 border-green-500 font-newsreader font-bold sm:pr-0"
+                href={`/${category}/${item.slug}`} key={item.slug}>
+                <div className="p-2 flex-grow flex-col flex">
+                    <div className="my-auto" dangerouslySetInnerHTML={{__html: item.title.rendered}}/>
+                    <p className="mt-4 ml-auto font-avenir text-2xl bg-primary-500 flex px-6 py-1 rounded text-right">Learn
+                        More</p>
+                </div>
+            </Link>
+        </>
+
     }));
 }
 
