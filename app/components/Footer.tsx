@@ -20,11 +20,11 @@ const Footer = () => {
                                alt="Follow Western Dakota Regional Water System on Facebook"/>
                     </Link>
                 </div>
-                <Link className="w-80 block mt-8 max-w-[50%] opacity-60 hover:opacity-85 transition-opacity"
-                      href="https://evergreenmediarc.com/">
-                    <p className="text-right">Design</p>
+                <div className="w-40 block mt-8 max-w-[50%] hover:opacity-85 transition-opacity"
+                      >
+                    <p className="text-right text-xs">Design</p>
                     <Image className="w-full" src={evergreenLogo} alt="Evergreen Media"/>
-                </Link>
+                </div>
             </div>
         </div>
 
