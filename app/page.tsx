@@ -54,7 +54,7 @@ export default async function Home() {
                 <ImageCard loading="eager" wide linkStyles="w-full md:w-6/12 max-w-screen-lg xl:-translate-x-36" colorScheme="yellow"
                            src={reportImg}
                            transparent
-                           link="/annual-report" text="Read the WDRWS Annual Report"/>
+                           link="/drought" text="Learn more about the water needs of western South Dakota"/>
                 <div className="z-20 xl:-ml-36 p-7 bg-green-400 bg-opacity-50">
                     <h2 className="text-4xl sm:text-7xl sm:mb-4">purpose</h2>
                     <p className="pl-2 py-2 sm:text-4xl text-lg sm:ml-14 font-light max-w-screen-sm">
@@ -65,7 +65,7 @@ export default async function Home() {
             <div
                 className="md:-mt-16 md:ml-24 w-11/12 max-w-screen-2xl self-center flex flex-wrap md:flex-nowrap font-newsreader">
                 <ImageCard colorScheme="blue" src={opportunityImg} linkStyles="w-full md:w-5/12 max-w-lg md:mb-24"
-                           text="Learn more about the water needs of western South Dakota" link="/drought"/>
+                           text="Join the conversation" link="/membership"/>
                 {/*<div
                     className="hidden md:block bg-black bg-opacity-20 border-t-[64px] border-b-[64px] w-0.5 mx-7 z-20"/>*/}
                 <div className="p-7 self-center mb-12 sm:mb-0">
@@ -88,7 +88,7 @@ export default async function Home() {
                 </div>
                 <ImageCard linkStyles="w-full lg:w-4/12 max-w-lg max-w-lg lg:-mt-24" colorScheme="yellow"
                            src={discoverImg}
-                           text="Discover what the WDRWS has accomplished so far"
+                           text="WDRWS Accomplishments to Date"
                            link="/progress"/>
             </div>
             <div className="w-full max-w-screen-xl m-auto -translate-y-20 flex flex-wrap justify-around">

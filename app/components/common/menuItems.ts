@@ -6,6 +6,9 @@ export type menuItem = {
 
 const menuItems: menuItem[] = [
     {
+        title: "Membership"
+    },
+    {
         title: "Discover",
         url: "#",
         subMenu: [
@@ -20,28 +23,9 @@ const menuItems: menuItem[] = [
             },
             {
                 title: "Funding"
-            }
-        ]
-    },
-    {
-        title: "News",
-        url: "#",
-        subMenu: [
-            /*{
-                title: "Events"
-            },*/
+            },
             {
-                title: "In The Media",
-                url: "news"
-            }
-        ]
-    },
-    {
-        title: "Materials",
-        url: "#",
-        subMenu: [
-            {
-                title: "Newsletters",
+                title: "Newsletter",
                 url: "material/category/newsletter"
             },
             {
@@ -52,21 +36,22 @@ const menuItems: menuItem[] = [
                 title: "Annual Reports",
                 url: "material/category/annual-report"
             },
-            {
-                title: "Meeting Agendas",
-                url: "material/category/meeting-agenda"
-            }
         ]
     },
     {
-        title: "About Us",
+        title: "News",
+        url: "news"
+    },
+    {
+        title: "About",
         url: "#",
         subMenu: [
             {
                 title: "Our History"
             },
             {
-                title: "The Board"
+                title: "Board",
+                url: "the-board"
             },
 /*            {
                 title: "The Team"
