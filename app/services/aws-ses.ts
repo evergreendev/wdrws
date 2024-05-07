@@ -106,7 +106,7 @@ ${website ? `<strong>Website:</strong> ${website}<br/>` : ""}
             from: adminMail,
             to: email as string,
             replyTo: adminMail,
-            subject: `Contact form submission confirmation (wdrws.org)`,
+            subject: `Membership request confirmation (wdrws.org)`,
             html: `
             <!DOCTYPE html >
 <html lang="en">
@@ -117,10 +117,14 @@ ${website ? `<strong>Website:</strong> ${website}<br/>` : ""}
 <div style="padding:20px;">
 <div style="max-width: 500px;">
 <p>
-This is to acknowledge your recent contact form submission from (WDRWS.org)<br/>
-Name: ${firstName} ${lastName} <br/>
-Email: ${email} <br/>
-Phone: ${phone} <br/>
+<strong>Name:</strong> ${firstName} ${lastName} <br/>
+${pointOfContactPrimary ? `<strong>Primary Point of Contact:</strong> ${pointOfContactPrimary} <br/>` : ""}
+${pointOfContactSecondary ? `<strong>Secondary Point of Contact:</strong> ${pointOfContactSecondary} <br/>` : ""}
+<strong>Email:</strong> ${email} <br/>
+<strong>Phone:</strong> ${phone} <br/>
+<strong>Address:</strong> ${address} <br/>
+${website ? `<strong>Website:</strong> ${website}<br/>` : ""}
+<strong>Membership Choice:</strong> ${membershipMap}
 </p>
 <p>
 
