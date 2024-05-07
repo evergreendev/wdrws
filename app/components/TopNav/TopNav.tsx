@@ -45,7 +45,7 @@ const TopNav = () => {
                     {menuItems.map(item => {
                         return <li key={item.title} className="relative group z-50">
                             <Link className="w-full block hover:bg-primary-300"
-                                  href={item.url || slugify(item.title, {lower: true})}>
+                                  href={item.url === "#" ? "#" : `/${item.url || slugify(item.title, {lower: true})}`}>
                                 {item.title}
                             </Link>
                             {
