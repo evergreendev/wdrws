@@ -54,6 +54,9 @@ const menuItems: menuItem[] = [
                 title: "Board",
                 url: "the-board"
             },
+            {
+                title: "Staff"
+            },
 /*            {
                 title: "The Team"
             },
