@@ -60,11 +60,12 @@ const menuItems: menuItem[] = [
                 title: "Katie Profile"
             },*/
             {
-                title: "Consulting Team Profiles"
+                title: "members"
             },
             {
-                title: "members"
-            }
+                title: "Consulting Team Profiles"
+            },
+
         ]
     }
 ];
