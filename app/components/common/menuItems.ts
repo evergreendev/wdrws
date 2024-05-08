@@ -47,7 +47,7 @@ const menuItems: menuItem[] = [
         url: "#",
         subMenu: [
             {
-                title: "Our History"
+                title: "History"
             },
             {
                 title: "Board",
