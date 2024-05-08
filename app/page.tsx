@@ -1,57 +1,155 @@
 import ImageCard from "@/app/components/ImageCard";
+import technical from "@/public/technical.jpg";
+import report from "@/public/report.png";
+import cheryl from "@/public/cheryl.jpg";
+import history from "@/public/history.png";
 import reportImg from "@/public/annual-report.jpg";
 import opportunityImg from "@/public/opportunity.jpg";
 import discoverImg from "@/public/discover.jpg";
-import ColCard from "@/app/components/ColCard";
-import materialsImg from "@/public/technical-sessions.png";
-import newsImg from "@/public/gary-drewes.jpg";
-import aboutImg from "@/public/katie-leclair.jpg";
 import Link from "next/link";
+import {CMS_URL} from "@/constants";
+import {notFound} from "next/navigation";
+import {WP_REST_API_Post} from "wp-types";
+import Image from "next/image";
+
+const getNews = async (): Promise<WP_REST_API_Post[]> => {
+    const res = await fetch(
+        `${CMS_URL}news?_embed=true&per_page=5&orderby=date`,
+        {cache: 'no-store'})
+
+    if (!res.ok) {
+        notFound();
+    }
+
+    return await res.json();
+}
+
+async function getLatestNewsletter() {
+    /*TODO add pagination*/
+    try {
+        const res = await fetch(
+            `${CMS_URL}material?material-type=19&_embed=true`,
+            {cache: 'no-store'})
+
+        return await res.json();
+
+    } catch (err) {
+        return null;
+    }
+
+}
+
 
 export default async function Home() {
+    const news = await getNews();
+    const latestNewsLetter = await getLatestNewsletter();
+    const latestNewsLetterData = latestNewsLetter?.[0];
+    const newsLetterImg = latestNewsLetterData?._embedded?.['wp:featuredmedia']?.[0];
 
     return (
         <main className="font-pt_sans flex min-h-screen flex-col justify-between bg-white">
             <div className="bg-hero bg-cover min-h-[30vh] relative">
-                <div className="w-full bg-white bg-opacity-60 max-w-screen-xl lg:max-w-screen-xl mx-auto py-10 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
-                    <h2 className="font-newsreader text-3xl sm:text-6xl text-center">Working to bring quality, abundant water to all corners of
+                <div
+                    className="w-full bg-white bg-opacity-60 max-w-screen-xl lg:max-w-screen-xl mx-auto py-10 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
+                    <h2 className="font-newsreader text-3xl sm:text-6xl text-center">Working to bring quality, abundant
+                        water to all corners of
                         western South Dakota.</h2>
                 </div>
             </div>
 
+
             <div className="w-full flex mb-6 flex-wrap">
-                <Link href="/membership"
-                      className="bg-green-500 xl:w-[33%] grow text-white flex flex-col justify-start px-8 py-4">
-                <div className="sm:w-96 mx-auto">
-                        <h2 className="font-newreader text-3xl text-center font-bold mb-2">
-                            Get Involved
-                        </h2>
-                        <p className="text-center text-xl">Take your seat at the table
-                            to discuss the future water needs of your community.</p>
+                <div
+                    className="xl:w-[33%] grow text-white flex flex-col justify-start px-0 py-0 shadow-md"><h2
+                    className="p-2 bg-green-500 font-newreader text-3xl text-center font-bold mb-2">
+                    Discover
+                </h2>
+                    <div className="sm:w-[450px] mx-auto py-6">
+
+                        {
+                            newsLetterImg
+                                ? <Link
+                                    className="flex w-full hover:bg-slate-200 mb-2 items-center"
+                                    href={`/material/${latestNewsLetterData.slug}`}>
+                                    <Image className="w-3/12" src={newsLetterImg.source_url} alt=""
+                                           width={newsLetterImg.media_details.width}
+                                           height={newsLetterImg.media_details.height}/>
+
+                                    <h2 className="w-8/12 text-xl grow text-black p-2">
+                                        WDRWS Newsletter: <br/><span
+                                        dangerouslySetInnerHTML={{__html: latestNewsLetterData.title.rendered}}/>
+                                    </h2>
+                                </Link>
+                                : ""
+                        }
+                        <Link className="flex w-full hover:bg-slate-200 mb-2 items-center"
+                              href={`/material/category/technical-session`}>
+                            <Image className="w-3/12" src={technical} alt=""/>
+
+                            <h2 className="w-8/12 text-xl grow text-black p-2">
+                                Technical Sessions
+                            </h2>
+                        </Link>
+                        <Link className="flex w-full hover:bg-slate-200 mb-2 items-center"
+                              href={`/annual-report`}>
+                            <Image className="w-3/12" src={report} alt=""/>
+
+                            <h2 className="w-8/12 text-xl grow text-black p-2">
+                                Annual Report
+                            </h2>
+                        </Link>
                     </div>
-                </Link>
-                <Link href="/material/category/newsletter" className="bg-primary-500 xl:w-[33%] grow text-black flex flex-col justify-start px-8  py-4">
-                    <div className="sm:w-96 mx-auto">
-                        <h2 className="font-newreader text-3xl text-center font-bold mb-2">
-                            Stay Informed
-                        </h2>
-                        <p className="text-center text-xl">Keep up to date on the latest from WDRWS with our
-                            newsletter</p>
+                </div>
+                <div className=" xl:w-[33%] grow text-black flex flex-col justify-start px-0  py-0 shadow-md">
+                    <Link href="/news">
+                        <h2 className="p-2 bg-primary-500 font-newreader text-3xl text-center font-bold mb-2">
+                            News
+                        </h2></Link>
+                    <div className="mx-auto py-6">
+                        {news.map(item => {
+                            const outsideLink = (item?.acf as any)?.['outside_link'];
+                            const formattedDate = new Date(item.date).toLocaleDateString();
+
+                            return <Link
+                                className="block w-full p-2 bg-opacity-90 bg-slate-100 border-slate-200 border-t-2 hover:bg-slate-200"
+                                key={item.id}
+                                href={outsideLink ? outsideLink : `/news/${item.slug}`}>
+                                <div dangerouslySetInnerHTML={{__html: item.title.rendered + " | " + formattedDate}}/>
+                            </Link>
+                        })}
                     </div>
-                </Link>
-                <Link href="/our-history"
-                      className="bg-secondary-500 xl:w-[33%] grow text-white flex flex-col justify-start px-8  py-4">
-                    <div className="sm:w-96 mx-auto">
-                        <h2 className="font-newreader text-3xl text-center font-bold mb-2">
-                            History
-                        </h2>
-                        <p className="text-center text-xl">Learn more about WDRWS formation, purpose, and mission</p>
+                </div>
+
+                <div
+                      className="xl:w-[33%] grow text-white flex flex-col justify-start px-0  py-0 shadow-md">
+                    <h2
+                        className="p-2 bg-secondary-500 font-newreader text-3xl text-center font-bold mb-2">
+                        About
+                    </h2>
+                    <div className="w-full sm:w-[450px] mx-auto py-6">
+                        <Link className="flex w-full hover:bg-slate-200 mb-2 items-center"
+                              href={`/staff`}>
+                            <Image className="w-3/12" src={cheryl} alt=""/>
+
+                            <h2 className="w-8/12 text-xl grow text-black p-2">
+                                Staff
+                            </h2>
+                        </Link>
+                        <Link className="flex w-full hover:bg-slate-200 items-center"
+                              href={`/our-history`}>
+                            <Image className="w-3/12" src={history} alt=""/>
+
+                            <h2 className="w-8/12 text-xl grow text-black p-2">
+                                History
+                            </h2>
+                        </Link>
                     </div>
-                </Link>
+                </div>
             </div>
             <div
                 className="flex-wrap bg-green-200 max-w-screen-2xl pb-28 sm:mx-auto flex justify-start font-newsreader items-center">
-                <ImageCard loading="eager" wide linkStyles="w-full md:w-6/12 max-w-screen-lg xl:-translate-x-36" colorScheme="yellow"
+                <ImageCard loading="eager" wide linkStyles="w-full md:w-6/12 max-w-screen-lg xl:-translate-x-36"
+                           colorScheme="yellow"
                            src={reportImg}
                            transparent
                            link="/drought" text="Learn more about the water needs of western South Dakota"/>
@@ -90,42 +188,6 @@ export default async function Home() {
                            src={discoverImg}
                            text="WDRWS Accomplishments to Date"
                            link="/progress"/>
-            </div>
-            <div className="w-full max-w-screen-xl m-auto -translate-y-20 flex flex-wrap justify-around">
-                <ColCard url="/material/category/technical-session" styles="lg:w-[31%] max-w-96 w-full mb-7" textClass="text-primary-500"
-                         borderClass="border-primary-500"
-                         src={materialsImg} header="Materials" subHeader="Technical Sessions"
-                         text="The anatomy of regional water projects" items={[
-                    {
-                        title: "Annual Report",
-                        url: "/annual-report",
-                        src: discoverImg
-                    },
-                    {
-                        title: "Meeting Agenda",
-                        url: "/meeting-agenda",
-                        src: discoverImg
-                    }
-                ]}/>
-                <ColCard url="/news" styles="lg:w-[31%] max-w-96 w-full mb-7" textClass="text-secondary-500"
-                         borderClass="border-t-secondary-500"
-                         src={newsImg} header="News" subHeader="In the Media" text="Congratulations to @Gary Drewes for being appointed to the SD State Water Management Board
-" items={[]}/>
-                <ColCard url="/katie-profile" styles="lg:w-[31%] max-w-96 w-full mb-7" textClass="text-green-500"
-                         borderClass="border-green-500" src={aboutImg}
-                         header="About Us" subHeader="Team Profile"
-                         text="Introducing Katie LeClair, the new Operations Manager of WDRWS" items={[
-                    {
-                        title: "The Board",
-                        url: "/the-board",
-                        src: discoverImg
-                    },
-                    {
-                        title: "Our History",
-                        url: "/our-history",
-                        src: discoverImg
-                    }
-                ]}/>
             </div>
         </main>
     );
