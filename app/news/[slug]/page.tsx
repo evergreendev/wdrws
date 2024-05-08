@@ -1,5 +1,5 @@
 import {CMS_URL} from "@/constants";
-import {notFound} from "next/navigation";
+import {notFound, redirect} from "next/navigation";
 import InnerPageContent from "@/app/components/InnerPageContent";
 import {Metadata, ResolvingMetadata} from "next";
 
@@ -18,6 +18,10 @@ export async function generateMetadata({params}: { params: { slug: string } }, p
     if (!data[0]) {
         notFound();
     }
+    if ((data[0]?.acf as any)?.['outside_link']) {
+        redirect((data[0]?.acf as any)?.['outside_link']);
+    }
+
 
     return {
         title: "West Dakota Regional Water System - " + data[0].title.rendered,
