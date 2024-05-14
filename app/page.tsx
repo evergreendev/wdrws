@@ -2,6 +2,7 @@ import ImageCard from "@/app/components/ImageCard";
 import technical from "@/public/technical.jpg";
 import report from "@/public/report.png";
 import cheryl from "@/public/cheryl.jpg";
+import doug from "@/public/doug.png";
 import history from "@/public/history.png";
 import reportImg from "@/public/annual-report.jpg";
 import opportunityImg from "@/public/opportunity.jpg";
@@ -14,7 +15,7 @@ import Image from "next/image";
 
 const getNews = async (): Promise<WP_REST_API_Post[]> => {
     const res = await fetch(
-        `${CMS_URL}news?_embed=true&per_page=5&orderby=date`,
+        `${CMS_URL}news?_embed=true&per_page=6&orderby=date`,
         {cache: 'no-store'})
 
     if (!res.ok) {
@@ -64,7 +65,7 @@ export default async function Home() {
                     className="p-2 bg-green-500 font-newreader text-3xl text-center font-bold mb-2">
                     Discover
                 </h2>
-                    <div className="sm:w-[450px] mx-auto py-6">
+                    <div className="sm:w-[450px] mx-auto py-6 px-8">
 
                         {
                             newsLetterImg
@@ -105,7 +106,7 @@ export default async function Home() {
                         <h2 className="p-2 bg-primary-500 font-newreader text-3xl text-center font-bold mb-2">
                             News
                         </h2></Link>
-                    <div className="mx-auto py-6">
+                    <div className="mx-auto py-6 w-full px-8">
                         {news.map(item => {
                             const outsideLink = (item?.acf as any)?.['outside_link'];
                             const formattedDate = new Date(item.date).toLocaleDateString();
@@ -126,11 +127,16 @@ export default async function Home() {
                         className="p-2 bg-secondary-500 font-newreader text-3xl text-center font-bold mb-2">
                         About
                     </h2>
-                    <div className="w-full sm:w-[450px] mx-auto py-6">
+                    <div className="w-full sm:w-[450px] mx-auto py-6 px-8">
+                        <Link className="flex w-full hover:bg-slate-200 mb-2 items-center" href={`/the-board`}>
+                            <Image className="w-3/12" src={doug} alt=""/>
+                            <h2 className="w-8/12 text-xl grow text-black p-2">
+                                Board
+                            </h2>
+                        </Link>
                         <Link className="flex w-full hover:bg-slate-200 mb-2 items-center"
                               href={`/staff`}>
                             <Image className="w-3/12" src={cheryl} alt=""/>
-
                             <h2 className="w-8/12 text-xl grow text-black p-2">
                                 Staff
                             </h2>
