@@ -81,6 +81,8 @@ body {
   --wp--preset--color--contrast: #000000;
   --wp--preset--color--primary: #178acb;
   --wp--preset--color--secondary: #fecc40;
+  --wp--preset--color--light-green: #b4ca9e;
+  --wp--preset--color--green: #70a04d;
   --wp--preset--color--transparent: transparent;
   --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg, rgba(6, 147, 227, 1) 0%, rgb(155, 81, 224) 100%);
   --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg, rgb(122, 220, 180) 0%, rgb(0, 208, 130) 100%);
