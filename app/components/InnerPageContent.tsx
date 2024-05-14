@@ -21,7 +21,7 @@ const InnerPageContent = ({width,title,content, isContent=true, featuredImg}: pr
 
     return <main className="font-pt_sans flex-col bg-slate-100 overflow-auto min-h-[68vh]">
         <div className="flex">
-            <h1 className="bg-secondary-500 pl-7 py-7 text-white text-4xl lg:text-6xl font-newsreader lg:ml-auto w-full lg:w-10/12">
+            <h1 className="bg-green-500 mt-8 mb-6 pl-7 py-7 text-white text-4xl lg:text-6xl font-newsreader lg:ml-auto w-full lg:w-10/12">
                 <span className="max-w-screen-xl block" dangerouslySetInnerHTML={{__html: title}}/>
             </h1>
         </div>

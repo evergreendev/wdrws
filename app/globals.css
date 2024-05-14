@@ -138,7 +138,6 @@ body {
 }
 
 .content ul, .content ol {
-  list-style-position: inside;
   margin-bottom: 1.5em; }
 
 .content li {
