@@ -40,7 +40,17 @@ const menuItems: menuItem[] = [
     },
     {
         title: "News",
-        url: "news"
+        url: "news",
+        subMenu: [
+            {
+                title: "News Releases",
+                url: "news/news-releases"
+            },
+            {
+                title: "Media",
+                url: "news/media"
+            }
+        ]
     },
     {
         title: "About",
