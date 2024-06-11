@@ -26,15 +26,15 @@ const menuItems: menuItem[] = [
             },
             {
                 title: "Newsletter",
-                url: "material/category/newsletter"
+                url: "/material/category/newsletter"
             },
             {
                 title: "Technical Sessions",
-                url: "material/category/technical-session"
+                url: "/material/category/technical-session"
             },
             {
                 title: "Annual Reports",
-                url: "material/category/annual-report"
+                url: "/material/category/annual-report"
             },
             {
                 title: "Annual Meeting",
@@ -44,15 +44,15 @@ const menuItems: menuItem[] = [
     },
     {
         title: "News",
-        url: "news",
+        url: "/news",
         subMenu: [
             {
                 title: "News Releases",
-                url: "news/news-releases"
+                url: "/news/news-releases"
             },
             {
                 title: "Media",
-                url: "news/media"
+                url: "/news/media"
             }
         ]
     },
@@ -62,11 +62,11 @@ const menuItems: menuItem[] = [
         subMenu: [
             {
                 title: "History",
-                url: "our-history"
+                url: "/our-history"
             },
             {
                 title: "Board",
-                url: "the-board"
+                url: "/the-board"
             },
             {
                 title: "Staff"

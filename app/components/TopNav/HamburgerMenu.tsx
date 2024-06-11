@@ -39,7 +39,7 @@ const HamburgerMenu = () => {
                 text-dark-gray uppercase justify-between text-xl flex-col w-full gap-2 max-w-screen-md pb-7">
                     {menuItems.map(item => {
                         return <li key={item.title} className="relative group w-48">
-                            <Link className="w-full block hover:bg-primary-300" href={`/${item.url || slugify(item.title, {lower:true})}`}>
+                            <Link className="w-full block hover:bg-primary-300" href={`${item.url || "/"+slugify(item.title, {lower:true})}`}>
                                 {item.title}
                             </Link>
                             {
@@ -47,10 +47,11 @@ const HamburgerMenu = () => {
                                     ?
                                     <ul className=" w-48 border-t-2 ml-2">
                                         {item.subMenu.map(subItem => {
+                                            console.log(slugify(subItem.title, {lower:true}))
                                             return <li className="text-light-gray hover:bg-primary-300"
                                                        key={item.title + "-" + subItem.title}>
                                                 <Link className="p-2 block"
-                                                      href={`/${subItem.url || slugify(subItem.title, {lower:true})}`}>
+                                                      href={`${subItem.url ||  "/"+slugify(subItem.title, {lower:true})}`}>
                                                     {subItem.title}
                                                 </Link>
                                             </li>

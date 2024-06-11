@@ -45,7 +45,7 @@ const TopNav = () => {
                     {menuItems.map(item => {
                         return <li key={item.title} className="relative group z-50">
                             <Link className="w-full block hover:bg-primary-300"
-                                  href={item.url === "#" ? "#" : `/${item.url || slugify(item.title, {lower: true})}`}>
+                                  href={item.url === "#" ? "#" : `${item.url ||  "/"+slugify(item.title, {lower: true})}`}>
                                 {item.title}
                             </Link>
                             {
@@ -56,7 +56,7 @@ const TopNav = () => {
                                             return <li className="text-light-gray hover:bg-primary-300"
                                                        key={item.title + "-" + subItem.title}>
                                                 <Link className="p-2 block"
-                                                      href={`/${subItem.url || slugify(subItem.title, {lower: true})}`}>
+                                                      href={`${subItem.url ||  "/"+slugify(subItem.title, {lower: true})}`}>
                                                     {subItem.title}
                                                 </Link>
                                             </li>
