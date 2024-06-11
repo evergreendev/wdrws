@@ -36,6 +36,10 @@ const menuItems: menuItem[] = [
                 title: "Annual Reports",
                 url: "material/category/annual-report"
             },
+            {
+                title: "Annual Meeting",
+                url: "https://bit.ly/4easDot"
+            }
         ]
     },
     {
