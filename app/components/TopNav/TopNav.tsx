@@ -17,11 +17,15 @@ const TopBar = () => {
             <div className="ml-2">
                 <Search/>
             </div>
-            <div className="mx-20 hidden sm:flex">
+            <div className="mx-14 hidden sm:flex">
                 <Link className="mx-3" href="https://www.facebook.com/westsdwater">
                     <Image className="size-6" src={facebookIcon} alt="Follow Us On Facebook"/>
                 </Link>
             </div>
+                <Link className="mx-3 mr-8 hidden sm:block text-white uppercase font-pt_sans text-lg font-bold hover:text-blue-200 transition-colors" href="/newsletter-signup">
+                    <p>Newsletter Signup</p>
+                </Link>
+
             <Link href="/contact"
                   className="hidden sm:block text-white uppercase font-pt_sans text-lg font-bold hover:text-blue-200 transition-colors">Contact</Link>
             <HamburgerMenu/>
@@ -33,7 +37,7 @@ const TopNav = () => {
         <TopBar/>
         <div className="bg-primary-500 px-16 hidden sm:block">
             <div className="w-full max-w-screen-xl m-auto flex items-center py-2">
-                <Link className="w-40 block" href="/">
+            <Link className="w-40 block" href="/">
                     <Image src={logo} alt="Western Dakota Regional Water System"/>
                 </Link>
                 <ul className="
