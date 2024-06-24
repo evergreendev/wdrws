@@ -39,8 +39,6 @@ export const sendMembershipMail = async (prevState: any, formData: FormData) => 
         }).join(" ");
     })
 
-    console.log(membership);
-
 
     let error = "";
 
@@ -70,7 +68,7 @@ export const sendMembershipMail = async (prevState: any, formData: FormData) => 
     try {
         await transporter.sendMail({
             from: adminMail,
-            to: "Katie.LeClair@wdrws.org",
+            to: ["Katie.LeClair@wdrws.org","dawn@egmrc.com"],
             replyTo: email as string,
             subject: `New Membership Request from ${firstName} ${lastName} (wdrws.org)`,
             html: `
