@@ -12,6 +12,7 @@ import {CMS_URL} from "@/constants";
 import {notFound} from "next/navigation";
 import {WP_REST_API_Post} from "wp-types";
 import Image from "next/image";
+import Modal from "@/app/components/Modal";
 
 const getNews = async (): Promise<WP_REST_API_Post[]> => {
     const res = await fetch(
@@ -49,6 +50,7 @@ export default async function Home() {
 
     return (
         <main className="font-pt_sans flex min-h-screen flex-col justify-between bg-white">
+            <Modal/>
             <div className="bg-hero bg-cover min-h-[30vh] relative">
                 <div
                     className="w-full bg-white bg-opacity-60 max-w-screen-xl lg:max-w-screen-xl mx-auto py-10 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
