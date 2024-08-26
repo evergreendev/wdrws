@@ -3,7 +3,7 @@ import "./globals.css";
 import {lato, newsreader, pt_sans} from "@/app/fonts";
 import TopNav from "@/app/components/TopNav";
 import Footer from "@/app/components/Footer";
-import { GoogleTagManager } from "@next/third-parties/google"
+import { GoogleAnalytics } from "@next/third-parties/google"
 
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-        <GoogleTagManager gtmId={"G-LSRWS849HZ"}/>
+        <GoogleAnalytics gaId={"G-LSRWS849HZ"}/>
         <body className={`${newsreader.variable} ${lato.variable} ${pt_sans.variable} overflow-x-hidden wp-embed-responsive`}>
         <TopNav/>
         {children}
