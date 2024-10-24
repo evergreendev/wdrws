@@ -24,7 +24,7 @@ export async function generateMetadata({params}: { params: { slug: string } }, p
 
 
     return {
-        title: "West Dakota Regional Water System - " + data[0].title.rendered,
+        title: "Western Dakotata Regional Water System - " + data[0].title.rendered,
         description: data[0]?.acf?.description || "Ensuring quality, abundant water to all corners of western South Dakota",
     }
 }
