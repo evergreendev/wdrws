@@ -31,7 +31,7 @@ async function getCategory(slug: string) {
 export async function generateMetadata({params}: { params: { slug: string } }, parent: ResolvingMetadata): Promise<Metadata> {
 
     return {
-        title: "Western Dakotata Regional Water System - " + parseTitleFromSlug(params.slug),
+        title: "Western Dakota Regional Water System - " + parseTitleFromSlug(params.slug),
         description: "Ensuring quality, abundant water to all corners of western South Dakota",
     }
 }
