@@ -2,7 +2,7 @@ import ImageCard from "@/app/components/ImageCard";
 import technical from "@/public/technical.jpg";
 import report from "@/public/report.png";
 import cheryl from "@/public/cheryl.jpg";
-import doug from "@/public/doug.png";
+import board from "@/public/jake.png";
 import history from "@/public/history.png";
 import reportImg from "@/public/annual-report.jpg";
 import opportunityImg from "@/public/opportunity.jpg";
@@ -129,7 +129,7 @@ export default async function Home() {
                     </h2>
                     <div className="w-full sm:w-[450px] mx-auto py-6 px-8">
                         <Link className="flex w-full hover:bg-slate-200 mb-2 items-center" href={`/the-board`}>
-                            <Image className="w-3/12" src={doug} alt=""/>
+                            <Image className="w-3/12" src={board} alt=""/>
                             <h2 className="w-8/12 text-xl grow text-black p-2">
                                 Board
                             </h2>
