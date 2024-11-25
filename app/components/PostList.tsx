@@ -31,7 +31,6 @@ const PostList = async (items: WP_REST_API_Post[], category: string) => {
 
     return await Promise.all(items.map(async (item) => {
         const month = getMonth(item.date);
-        console.log("month", month);
         const shouldPrintMonth = !seenMonth.has(month.month + month.year);
 
         seenMonth.add(month.month + month.year);

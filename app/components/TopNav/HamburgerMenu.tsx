@@ -48,7 +48,6 @@ const HamburgerMenu = () => {
                                     ?
                                     <ul className=" w-48 border-t-2 ml-2">
                                         {item.subMenu.map(subItem => {
-                                            console.log(slugify(subItem.title, {lower: true}))
                                             return <li className="text-light-gray hover:bg-primary-300"
                                                        key={item.title + "-" + subItem.title}>
                                                 <Link className="p-2 block"

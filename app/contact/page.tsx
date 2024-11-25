@@ -16,8 +16,6 @@ async function getData(slug: string) {
 export default async function Page() {
     const data = await getData("contact");
 
-    console.log(data[0])
-
     if (!data[0]) {
         notFound();
     }

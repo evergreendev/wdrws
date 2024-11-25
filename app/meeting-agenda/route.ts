@@ -18,8 +18,6 @@ async function getData() {
 
 export async function GET() {
     const res = await getData();
-    console.log(res.data[0].slug);
-
 
     redirect(`/material/${res.data[0].slug}`);
 }
