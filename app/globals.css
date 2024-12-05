@@ -267,3 +267,11 @@ body {
   gap: 1.5rem;
   flex-direction: row;
 }
+
+.wp-block-image{
+  display: flex;
+  flex-wrap: wrap;
+}
+.aligncenter{
+  justify-content: center;
+}
