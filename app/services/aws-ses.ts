@@ -1,25 +1,15 @@
 "use server"
-import * as AWS from "aws-sdk";
 import * as nodeMailer from "nodemailer";
-
-AWS.config.update({
-    credentials: {
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID || "",
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || "",
-    },
-    region: "us-east-2",
-});
-AWS.config.getCredentials((err, credentials) => {
-    if (err) {
-        console.error(err.stack);
-    }
-});
-const ses = new AWS.SES({apiVersion: "latest"});
 
 const adminMail = "noreply@wdrws.org"/*todo Change this*/
 
 const transporter = nodeMailer.createTransport({
-    SES: ses
+    host: process.env.EMAIL_HOST,
+    port: Number(process.env.EMAIL_PORT)||0,
+    auth: {
+        user: process.env.EMAIL_USERNAME,
+        pass: process.env.AWS_SECRET_ACCESS_KEY
+    },
 });
 
 export const sendMembershipMail = async (prevState: any, formData: FormData) => {
@@ -75,7 +65,7 @@ export const sendMembershipMail = async (prevState: any, formData: FormData) => 
             <!DOCTYPE html >
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Contact</title>
 </head>
 <body>
 <div style="padding:20px;">
@@ -109,7 +99,7 @@ ${website ? `<strong>Website:</strong> ${website}<br/>` : ""}
             <!DOCTYPE html >
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Contact</title>
 </head>
 <body>
 <div style="padding:20px;">
@@ -151,6 +141,7 @@ export const sendMail = async (prevState: any, formData: FormData) => {
     const lastName = formData.get("lastName");
     const phone = formData.get("phone");
     const message = formData.get("message");
+    const newsLetter = formData.get("newsletter");
     let error = "";
 
     if(!email){
@@ -165,9 +156,8 @@ export const sendMail = async (prevState: any, formData: FormData) => {
     if(!phone){
         error += "Please enter a valid phone number. ";
     }
-    if(!message){
-        error += "Please enter a message.";
-    }
+
+    console.log(newsLetter)
 
     if (error){
         return {
@@ -186,7 +176,7 @@ export const sendMail = async (prevState: any, formData: FormData) => {
             <!DOCTYPE html >
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Contact</title>
 </head>
 <body>
 <div style="padding:20px;">
@@ -195,6 +185,7 @@ export const sendMail = async (prevState: any, formData: FormData) => {
 Name: ${firstName} ${lastName} <br/>
 Email: ${email} <br/>
 Phone: ${phone} <br/>
+${newsLetter ? "I wish to receive the newsletter" : ""}
 </p>
 <p>
 ${message}
@@ -215,7 +206,7 @@ ${message}
             <!DOCTYPE html >
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Contact</title>
 </head>
 <body>
 <div style="padding:20px;">

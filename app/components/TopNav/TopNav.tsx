@@ -22,9 +22,9 @@ const TopBar = () => {
                     <Image className="size-6" src={facebookIcon} alt="Follow Us On Facebook"/>
                 </Link>
             </div>
-                <Link className="mx-3 mr-8 hidden sm:block text-white uppercase font-pt_sans text-lg font-bold hover:text-blue-200 transition-colors" href="/newsletter-signup">
+            {/*                <Link className="mx-3 mr-8 hidden sm:block text-white uppercase font-pt_sans text-lg font-bold hover:text-blue-200 transition-colors" href="/newsletter-signup">
                     <p>Newsletter Signup</p>
-                </Link>
+                </Link>*/}
 
             <Link href="/contact"
                   className="hidden sm:block text-white uppercase font-pt_sans text-lg font-bold hover:text-blue-200 transition-colors">Contact</Link>
@@ -37,7 +37,7 @@ const TopNav = () => {
         <TopBar/>
         <div className="bg-primary-500 px-16 hidden sm:block">
             <div className="w-full max-w-screen-xl m-auto flex items-center py-2">
-            <Link className="w-40 block" href="/">
+                <Link className="w-40 block" href="/">
                     <Image src={logo} alt="Western Dakota Regional Water System"/>
                 </Link>
                 <ul className="
@@ -49,7 +49,7 @@ const TopNav = () => {
                     {menuItems.map(item => {
                         return <li key={item.title} className="relative group z-50">
                             <Link className="w-full block hover:bg-primary-300"
-                                  href={item.url === "#" ? "#" : `${item.url ||  "/"+slugify(item.title, {lower: true})}`}>
+                                  href={item.url === "#" ? "#" : `${item.url || "/" + slugify(item.title, {lower: true})}`}>
                                 {item.title}
                             </Link>
                             {
@@ -60,7 +60,7 @@ const TopNav = () => {
                                             return <li className="text-light-gray hover:bg-primary-300"
                                                        key={item.title + "-" + subItem.title}>
                                                 <Link className="p-2 block"
-                                                      href={`${subItem.url ||  "/"+slugify(subItem.title, {lower: true})}`}>
+                                                      href={`${subItem.url || "/" + slugify(subItem.title, {lower: true})}`}>
                                                     {subItem.title}
                                                 </Link>
                                             </li>

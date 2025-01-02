@@ -39,9 +39,12 @@ const ContactForm = () => {
                            required/>
                 </div>
                 <div className="flex-col flex mb-4">
-                    <label htmlFor="message">Message <span className="text-red-600">*</span></label>
-                    <textarea className="border-b-2 border-slate-300 shadow-sm" id="message" name="message"
-                              required/>
+                    <label htmlFor="message">Message</label>
+                    <textarea className="border-b-2 border-slate-300 shadow-sm" id="message" name="message"/>
+                </div>
+                <div>
+                    <input className="mr-1" type="checkbox" id="newsletter" name="newsletter"/>
+                    <label htmlFor="newsletter">I want to receive the newsletter</label>
                 </div>
                 <p className="text-red-600">
                     {state?.error}

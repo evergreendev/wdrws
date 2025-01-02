@@ -63,7 +63,7 @@ const HamburgerMenu = () => {
                     })}
                 </ul>
             }
-            <Link className="mt-8
+            {/*            <Link className="mt-8
                 ml-7
                 font-pt_sans
                 text-left
@@ -71,7 +71,7 @@ const HamburgerMenu = () => {
                 text-dark-gray uppercase justify-between text-xl flex-col w-full gap-2 max-w-screen-md pb-7 mx-3 block transition-colors"
                   href="/newsletter-signup">
                 <p>Newsletter Signup</p>
-            </Link>
+            </Link>*/}
         </div>
     </div>
 }
