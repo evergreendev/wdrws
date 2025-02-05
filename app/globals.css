@@ -203,13 +203,13 @@ body {
     display: inline-block;
     transition: background-color 0.3s;
 }
-.has-background {
-  background-color: var(--wp--preset--color--background);
-}
+
 .has-base-color {
     color: var(--wp--preset--color--base) !important;
 }
-
+.has-green-background-color{
+  background-color: var(--wp--preset--color--green) !important;
+}
 .has-primary-background-color {
     background-color: var(--wp--preset--color--primary) !important;
 }
