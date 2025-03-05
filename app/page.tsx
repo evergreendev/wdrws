@@ -1,7 +1,7 @@
 import ImageCard from "@/app/components/ImageCard";
 import technical from "@/public/technical.jpg";
 import report from "@/public/report.png";
-import cheryl from "@/public/cheryl.jpg";
+import staffImg from "@/public/conzet.jpg";
 import board from "@/public/jake.png";
 import history from "@/public/history.png";
 import reportImg from "@/public/annual-report.jpg";
@@ -136,7 +136,7 @@ export default async function Home() {
                         </Link>
                         <Link className="flex w-full hover:bg-slate-200 mb-2 items-center"
                               href={`/staff`}>
-                            <Image className="w-3/12" src={cheryl} alt=""/>
+                            <Image className="w-3/12" src={staffImg} alt=""/>
                             <h2 className="w-8/12 text-xl grow text-black p-2">
                                 Staff
                             </h2>
