@@ -7,8 +7,8 @@ import facebookLogo from "@/public/facebook-icon.png";
 const Footer = () => {
     const currentYear = new Date().getFullYear();
     return <div className="bg-secondary-500 pb-7 text-secondary-100 uppercase">
-            <div className="w-full max-w-screen-xl m-auto flex flex-wrap justify-around lg:justify-between items-center px-2">
-                <div className="flex flex-wrap items-center">
+            <div className="w-full max-w-screen-xl m-auto flex flex-wrap justify-around lg:justify-between items-center px-2 gap-y-5">
+                <div className="flex flex-wrap items-center gap-y-5 justify-center">
                     <div>
                         <Link href="/">
                             <Image className="w-80 p-4" src={mainLogo} alt="Western Dakota Regional Water System"/>
@@ -19,6 +19,14 @@ const Footer = () => {
                         <Image className="w-11" src={facebookLogo}
                                alt="Follow Western Dakota Regional Water System on Facebook"/>
                     </Link>
+                </div>
+                <div className="text-center lg:text-left">
+                    <p className="font-bold text-base">Kristin Conzet, Executive Director</p>
+                    <p className="mt-2 text-sm">
+                        <a href="tel:6055197333">605-519-7333</a>
+                    </p>
+                    <p className="mt-1 text-sm">PO Box 484</p>
+                    <p className="text-sm">Rapid City, South Dakota 57709</p>
                 </div>
                 <div className="w-40 block mt-8 max-w-[50%] hover:opacity-85 transition-opacity"
                       >
