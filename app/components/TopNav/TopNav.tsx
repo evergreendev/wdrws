@@ -1,5 +1,4 @@
 import Image from "next/image";
-import facebookIcon from "@/public/facebook-icon.png";
 import Link from "next/link";
 import Search from "@/app/components/Search";
 import logo from "@/public/wdrws-dark-logo.png";
@@ -18,9 +17,9 @@ const TopBar = () => {
                 <Search/>
             </div>
             <div className="mx-14 hidden sm:flex">
-                <Link className="mx-3" href="https://www.facebook.com/westsdwater">
+{/*                <Link className="mx-3" href="https://www.facebook.com/westsdwater">
                     <Image className="size-6" src={facebookIcon} alt="Follow Us On Facebook"/>
-                </Link>
+                </Link>*/}
             </div>
             {/*                <Link className="mx-3 mr-8 hidden sm:block text-white uppercase font-pt_sans text-lg font-bold hover:text-blue-200 transition-colors" href="/newsletter-signup">
                     <p>Newsletter Signup</p>
