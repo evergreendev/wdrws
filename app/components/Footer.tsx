@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import evergreenLogo from "@/public/evergreen.png";
 import facebookLogo from "@/public/facebook-icon.png";
+import { Linkedin, Facebook } from 'lucide-react';
+
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -16,8 +18,10 @@ const Footer = () => {
                         <p className="pl-4 opacity-60">Copyright WDRWS {currentYear}</p>
                     </div>
                     <Link className="mx-2" href="https://www.facebook.com/westsdwater">
-                        <Image className="w-11" src={facebookLogo}
-                               alt="Follow Western Dakota Regional Water System on Facebook"/>
+                        <Facebook size={34}/>
+                    </Link>
+                    <Link className="mx-2" href="https://www.linkedin.com/company/wdrws">
+                        <Linkedin size={34}/>
                     </Link>
                 </div>
                 <div className="text-center lg:text-left">

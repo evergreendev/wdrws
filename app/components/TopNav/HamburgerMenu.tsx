@@ -1,8 +1,7 @@
 'use client'
 import menuItems from "@/app/components/common/menuItems";
 import {useEffect, useState} from "react";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCircleXmark, faBars} from "@fortawesome/free-solid-svg-icons";
+import {X, Menu} from "lucide-react";
 import Link from "next/link";
 import slugify from "slugify";
 import {usePathname} from "next/navigation";
@@ -22,8 +21,8 @@ const HamburgerMenu = () => {
         }}>
             {
                 isOpen ?
-                    <FontAwesomeIcon size="lg" icon={faCircleXmark} color="white"/> :
-                    <FontAwesomeIcon size="lg" icon={faBars} color="white"/>
+                    <X size={24} color="white"/> :
+                    <Menu size={24} color="white"/>
             }
         </button>
         <div className={`fixed inset-0 bg-primary-300 z-40 
