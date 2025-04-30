@@ -6,9 +6,6 @@ export type menuItem = {
 
 const menuItems: menuItem[] = [
     {
-        title: "Membership"
-    },
-    {
         title: "Discover",
         url: "#",
         subMenu: [
