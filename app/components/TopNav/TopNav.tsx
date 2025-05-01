@@ -28,7 +28,7 @@ const TopBar = () => {
             <Link href="/contact"
                   className="hidden sm:block text-black uppercase font-pt_sans text-lg font-bold hover:text-blue-950 transition-colors px-4 py-2 mx-2 rounded bg-primary-500 hover:bg-primary-400">Contact</Link>
             <Link href="/membership"
-                  className="hidden sm:block text-white uppercase font-pt_sans text-lg font-bold hover:text-white transition-colors px-4 py-2 mx-2 rounded bg-green-500 hover:bg-green-400">Join Now</Link>
+                  className="hidden sm:block uppercase font-pt_sans text-lg font-bold hover:text-white transition-colors px-4 py-2 mx-2 rounded bg-white text-black hover:bg-green-400">Join Now</Link>
             <HamburgerMenu/>
         </div>
     </div>
