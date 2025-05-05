@@ -30,7 +30,20 @@ export default async function Page() {
 
     const items = await NewsList(data.data,"news");
 
+    const contentWithIframe = (
+        <>
+            <div className="mb-6">
+                <iframe src="https://embed.acast.com/$/5e912600e188b1a04155c38c/water-for-the-west-with-kristen-conzet-and-cory-chornee?" 
+                        frameBorder="0" 
+                        width="100%" 
+                        height="110px" 
+                        allow="autoplay"></iframe>
+            </div>
+            {items}
+        </>
+    );
+
     return (
-        <InnerPageContent width="LG" title="News" content={items} isContent={false}/>
+        <InnerPageContent width="LG" title="News" content={contentWithIframe} isContent={false}/>
     );
 }

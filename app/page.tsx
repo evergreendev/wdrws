@@ -107,6 +107,13 @@ export default async function Home() {
                             News
                         </h2></Link>
                     <div className="mx-auto py-6 w-full px-8">
+                        <div className="mb-6">
+                            <iframe src="https://embed.acast.com/$/5e912600e188b1a04155c38c/water-for-the-west-with-kristen-conzet-and-cory-chornee?" 
+                                    frameBorder="0" 
+                                    width="100%" 
+                                    height="110px" 
+                                    allow="autoplay"></iframe>
+                        </div>
                         {news.map(item => {
                             const outsideLink = (item?.acf as any)?.['outside_link'];
                             const formattedDate = new Date(item.date).toLocaleDateString();
