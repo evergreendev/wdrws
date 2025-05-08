@@ -117,12 +117,30 @@ export default async function Home() {
                         {news.map(item => {
                             const outsideLink = (item?.acf as any)?.['outside_link'];
                             const formattedDate = new Date(item.date).toLocaleDateString();
+                            const newsPreviewLine = (item?.acf as any)?.['news_preview_line'];
+                            const featuredImg = item._embedded?.['wp:featuredmedia']?.[0] as any;
 
                             return <Link
-                                className="block w-full p-2 bg-opacity-90 bg-slate-100 border-slate-200 border-t-2 hover:bg-slate-200"
+                                className="flex flex-wrap sm:flex-nowrap w-full p-2 bg-opacity-90 bg-slate-100 border-slate-200 border-t-2 hover:bg-slate-200"
                                 key={item.id}
                                 href={outsideLink ? outsideLink : `/news/${item.slug}`}>
-                                <div dangerouslySetInnerHTML={{__html: item.title.rendered + " | " + formattedDate}}/>
+                                {featuredImg && (
+                                    <div className="w-20 h-20 min-w-20 mr-2 flex-shrink-0">
+                                        <Image 
+                                            className="w-full h-full object-cover"
+                                            src={featuredImg.source_url} 
+                                            alt=""
+                                            width={featuredImg.media_details.width}
+                                            height={featuredImg.media_details.height}
+                                        />
+                                    </div>
+                                )}
+                                <div className="flex-grow flex-col flex">
+                                    <div className="my-auto" dangerouslySetInnerHTML={{__html: item.title.rendered + " | " + formattedDate}}/>
+                                    {newsPreviewLine && 
+                                        <div className="mt-1 text-sm" dangerouslySetInnerHTML={{__html: newsPreviewLine}}/>
+                                    }
+                                </div>
                             </Link>
                         })}
                     </div>
