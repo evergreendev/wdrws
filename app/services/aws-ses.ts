@@ -5,10 +5,10 @@ const adminMail = "noreply@wdrws.org"/*todo Change this*/
 
 const transporter = nodeMailer.createTransport({
     host: process.env.EMAIL_HOST,
-    port: Number(process.env.EMAIL_PORT)||0,
+    port: Number(process.env.EMAIL_PORT)||587,
     auth: {
         user: process.env.EMAIL_USERNAME,
-        pass: process.env.AWS_SECRET_ACCESS_KEY
+        pass: process.env.EMAIL_PASSWORD
     },
 });
 
