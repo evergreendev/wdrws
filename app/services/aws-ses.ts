@@ -169,7 +169,7 @@ export const sendMail = async (prevState: any, formData: FormData) => {
     try {
         await transporter.sendMail({
             from: adminMail,
-            to: "cheryl.chapman@wdrws.org",
+            to: "kristin.conzet@wdrws.org",
             replyTo: email as string,
             subject: `New Contact form submission from ${firstName} ${lastName} (wdrws.org)`,
             html: `
