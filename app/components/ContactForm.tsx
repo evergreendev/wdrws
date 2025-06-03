@@ -2,6 +2,7 @@
 import {sendMail} from "@/app/services/aws-ses"
 import {useFormState} from 'react-dom'
 import {useState, useEffect} from 'react'
+import {useSearchParams} from 'next/navigation'
 
 const initialState = {
     message: "",
@@ -12,14 +13,15 @@ const ContactForm = () => {
     const [loading, setLoading] = useState(false);
     const [reasonForContact, setReasonForContact] = useState('');
 
+    const searchParams = useSearchParams();
+
     useEffect(() => {
         // Get the reason from URL parameters if available
-        const urlParams = new URLSearchParams(window.location.search);
-        const reason = urlParams.get('reason');
+        const reason = searchParams.get('reason');
         if (reason) {
             setReasonForContact(reason);
         }
-    }, []);
+    }, [searchParams]);
 
     const [state, formAction] = useFormState(async (prevState: any, formData: FormData) => {
         setLoading(true);

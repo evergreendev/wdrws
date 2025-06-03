@@ -142,6 +142,7 @@ export const sendMail = async (prevState: any, formData: FormData) => {
     const phone = formData.get("phone");
     const message = formData.get("message");
     const newsLetter = formData.get("newsletter");
+    const reasonForContacting = formData.get("reasonForContact");
     let error = "";
 
     if(!email){
@@ -187,6 +188,7 @@ Email: ${email} <br/>
 Phone: ${phone} <br/>
 ${newsLetter ? "I wish to receive the newsletter" : ""}
 </p>
+<p>Reason for contacting: ${reasonForContacting}</p>
 <p>
 ${message}
 </p>
