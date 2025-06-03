@@ -1,7 +1,7 @@
 "use client"
 import {sendMail} from "@/app/services/aws-ses"
 import {useFormState} from 'react-dom'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 const initialState = {
     message: "",
@@ -10,6 +10,17 @@ const initialState = {
 
 const ContactForm = () => {
     const [loading, setLoading] = useState(false);
+    const [reasonForContact, setReasonForContact] = useState('');
+
+    useEffect(() => {
+        // Get the reason from URL parameters if available
+        const urlParams = new URLSearchParams(window.location.search);
+        const reason = urlParams.get('reason');
+        if (reason) {
+            setReasonForContact(reason);
+        }
+    }, []);
+
     const [state, formAction] = useFormState(async (prevState: any, formData: FormData) => {
         setLoading(true);
         const result = await sendMail(prevState, formData);
@@ -44,6 +55,23 @@ const ContactForm = () => {
                     <label htmlFor="email">Email <span className="text-red-600">*</span></label>
                     <input className="border-b-2 border-slate-300 shadow-sm" type="text" id="email" name="email"
                            required/>
+                </div>
+                <div className="flex-col flex mb-4">
+                    <label htmlFor="reasonForContact">Reason for contacting <span className="text-red-600">*</span></label>
+                    <select 
+                        className="border-b-2 border-slate-300 shadow-sm p-2" 
+                        id="reasonForContact" 
+                        name="reasonForContact"
+                        value={reasonForContact}
+                        onChange={(e) => setReasonForContact(e.target.value)}
+                        required
+                    >
+                        <option value="" disabled>Select a reason</option>
+                        <option value="send-me-info">Send me info</option>
+                        <option value="request-presentation">Request a presentation</option>
+                        <option value="will-i-be-impacted">Will I be impacted?</option>
+                        <option value="general-comments">General comments</option>
+                    </select>
                 </div>
                 <div className="flex-col flex mb-4">
                     <label htmlFor="message">Message</label>

@@ -16,17 +16,25 @@ const TopBar = () => {
             <div className="ml-2">
                 <Search/>
             </div>
-            <div className="mx-14 hidden sm:flex">
+            <div className="mx-4 hidden sm:flex">
 {/*                <Link className="mx-3" href="https://www.facebook.com/westsdwater">
                     <Image className="size-6" src={facebookIcon} alt="Follow Us On Facebook"/>
                 </Link>*/}
             </div>
-            {/*                <Link className="mx-3 mr-8 hidden sm:block text-white uppercase font-pt_sans text-lg font-bold hover:text-blue-200 transition-colors" href="/newsletter-signup">
-                    <p>Newsletter Signup</p>
-                </Link>*/}
+
+            <div className="hidden sm:flex">
+                <Link href="/contact?reason=send-me-info"
+                      className="text-white bg-[#0e5485] font-pt_sans text-base hover:bg-blue-900 transition-colors px-4 py-1.5 mx-1 rounded-lg bg-secondary-700 hover:bg-secondary-800">Send Me Info</Link>
+                <Link href="/contact?reason=request-presentation"
+                      className="text-white bg-[#0e5485] font-pt_sans text-base hover:bg-blue-900 transition-colors px-4 py-1.5 mx-1 rounded-lg bg-secondary-700 hover:bg-secondary-800">Request Presentation</Link>
+                <Link href="/contact?reason=will-i-be-impacted"
+                      className="text-white bg-[#0e5485] font-pt_sans text-base hover:bg-blue-900 transition-colors px-4 py-1.5 mx-1 rounded-lg bg-secondary-700 hover:bg-secondary-800">Will I Be Impacted?</Link>
+                <Link href="/contact?reason=general-comments"
+                      className="text-white bg-[#0e5485] font-pt_sans text-base hover:bg-blue-900 transition-colors px-4 py-1.5 mx-1 rounded-lg bg-secondary-700 hover:bg-secondary-800">General Comments</Link>
+            </div>
 
             <Link href="/contact"
-                  className="hidden sm:block text-black uppercase font-pt_sans text-lg font-bold hover:text-blue-950 transition-colors px-4 py-2 mx-2 rounded bg-primary-500 hover:bg-primary-400">Contact</Link>
+                  className="text-black bg-primary-500 font-pt_sans text-base transition-colors px-4 py-1.5 mx-1 rounded-lg bg-secondary-700 hover:bg-secondary-800">Contact</Link>
             <Link href="/membership"
                   className="hidden sm:block uppercase font-pt_sans text-lg font-bold hover:text-white transition-colors px-4 py-2 mx-2 rounded bg-white text-black hover:bg-green-400">Join Now</Link>
             <HamburgerMenu/>
