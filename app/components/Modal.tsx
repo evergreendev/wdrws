@@ -1,6 +1,4 @@
 'use client';
-import Image from "next/image";
-import header from "@/public/wdrws-annual-meeting.jpg";
 import {useEffect, useState} from "react";
 
 const Modal = () => {
@@ -23,12 +21,15 @@ const Modal = () => {
                 <button onClick={toggleModal} className={`rounded-full absolute top-1 right-1 font-bold bg-blue-500 hover:bg-blue-900 size-8 text-white`}>
                     x
                 </button>
-                <Image src={header} alt="WDRWS Annual Meeting 2024" className="w-full"/>
-                <a className="mt-8 font-bold bg-primary-700 p-4 block text-center rounded text-xl" href="https://www.eventbrite.com/e/western-dakota-regional-water-system-annual-meeting-tickets-912759286597">Register now for the 2024 Annual Meeting on September 5, 2024! </a>
+                <h2 className="text-2xl font-bold mt-4 text-center mb-4">Quarterly Technical Session - July 11th</h2>
+                <p>    Quarterly technical sessions are open to anyone interested in learning more about important technical issues associated with ensuring an abundant, quality water supply for western South Dakota.
+                    The next Technical Session will be held on July 11, 2025 via zoom.</p>
+                <a className="mt-4 font-bold bg-primary-700 p-4 block text-center rounded text-xl" href="https://www.eventbrite.com/e/1269978312319?aff=oddtdtcreator">Register now!</a>
             </div>
             <div onClick={toggleModal} className="bg-black opacity-50 absolute inset-0"/>
         </div>
     );
 }
+
 
 export default Modal;
