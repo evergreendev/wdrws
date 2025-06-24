@@ -58,7 +58,7 @@ export const sendMembershipMail = async (prevState: any, formData: FormData) => 
     try {
         await transporter.sendMail({
             from: adminMail,
-            to: ["officeadmin@wdrws.org","dawn@egmrc.com"],
+            to: ["info@wdrws.org","dawn@egmrc.com"],
             replyTo: email as string,
             subject: `New Membership Request from ${firstName} ${lastName} (wdrws.org)`,
             html: `
