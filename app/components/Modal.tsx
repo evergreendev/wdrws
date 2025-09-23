@@ -21,9 +21,14 @@ const Modal = () => {
                 <button onClick={toggleModal} className={`rounded-full absolute top-1 right-1 font-bold bg-blue-500 hover:bg-blue-900 size-8 text-white`}>
                     x
                 </button>
-                <h2 className="text-2xl font-bold mt-4 text-center mb-4">Annual Meeting</h2>
-                <p>A discussion on a proposed pipeline to provide water to western South Dakota.</p>
-                <a className="mt-4 font-bold bg-primary-700 p-4 block text-center rounded text-xl" href="https://bit.ly/4eOQIBU">Register now!</a>
+                <h2 className="text-2xl font-bold mt-4 text-center mb-4">Quarterly Technical Sessions</h2>
+                <p>Friday, October 3 • 12 – 1 pm MST</p>
+                <p>Hydrologic Budgets Revisited: Paleo Droughts and Their Impacts on Modern Groundwater Availability in the Black Hills
+                </p>
+{/*                <p>
+                    Presented by Colton Medler and Galen Hoogestraat, USGS
+                </p>*/}
+                <a className="mt-4 font-bold bg-primary-700 p-4 block text-center rounded text-xl" href="https://www.eventbrite.com/e/wdrws-quarterly-technical-sessions-tickets-1735205138279?aff=oddtdtcreator">Register now!</a>
             </div>
             <div onClick={toggleModal} className="bg-black opacity-50 absolute inset-0"/>
         </div>
