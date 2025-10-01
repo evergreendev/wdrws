@@ -23,7 +23,7 @@ const Modal = () => {
                 </button>
                 <h2 className="text-2xl font-bold mt-4 text-center mb-4">Quarterly Technical Sessions</h2>
                 <p>Friday, October 3 • 12 – 1 pm MST</p>
-                <p>Hydrologic Budgets Revisited: Paleo Droughts and Their Impacts on Modern Groundwater Availability in the Black Hills
+                <p>Conceptual Water Treatment System – Preliminary Water Quality Data and Testing
                 </p>
 {/*                <p>
                     Presented by Colton Medler and Galen Hoogestraat, USGS
