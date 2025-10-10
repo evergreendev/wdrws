@@ -7,6 +7,7 @@ import history from "@/public/history.png";
 import reportImg from "@/public/annual-report.jpg";
 import opportunityImg from "@/public/opportunity.jpg";
 import discoverImg from "@/public/discover.jpg";
+import annualMeetingLogo from "@/public/wdrws-annual-meeting-logo.jpg";
 import Link from "next/link";
 import {CMS_URL} from "@/constants";
 import {notFound} from "next/navigation";
@@ -99,6 +100,15 @@ export default async function Home() {
 
                             <h2 className="w-8/12 text-xl grow text-black p-2">
                                 Annual Report
+                            </h2>
+                        </Link>
+                        <Link className="flex w-full hover:bg-slate-200 mb-2 items-center"
+                              href={`/wdrws-annual-meeting`}>
+                            <div className="w-3/12 bg-primary-500 aspect-square flex flex-col justify-center items-center">
+                                <Image src={annualMeetingLogo} alt=""/>
+                            </div>
+                            <h2 className="w-8/12 text-xl grow text-black p-2">
+                                Annual Meeting
                             </h2>
                         </Link>
                     </div>

@@ -35,7 +35,7 @@ const menuItems: menuItem[] = [
             },
             {
                 title: "Annual Meeting",
-                url: "https://bit.ly/4eOQIBU"
+                url: "/wdrws-annual-meeting"
             }
         ]
     },
