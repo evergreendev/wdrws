@@ -19,6 +19,7 @@ export default function RootLayout({
     return (
         <html lang="en">
         <GoogleAnalytics gaId={"G-LSRWS849HZ"}/>
+        <GoogleAnalytics gaId={"G-5JRPP98J4S"}/>
         <body className={`${newsreader.variable} ${lato.variable} ${pt_sans.variable} overflow-x-hidden wp-embed-responsive`}>
         <TopNav/>
         {children}
