@@ -141,6 +141,10 @@ export const sendMail = async (prevState: any, formData: FormData) => {
     const lastName = formData.get("lastName");
     const phone = formData.get("phone");
     const message = formData.get("message");
+    const address = formData.get("mailing-address");
+    const city = formData.get("city");
+    const state = formData.get("state");
+    const zip = formData.get("zip");
     const newsLetter = formData.get("newsletter");
     const reasonForContacting = formData.get("reasonForContact");
     let error = "";
@@ -170,10 +174,10 @@ export const sendMail = async (prevState: any, formData: FormData) => {
     try {
         await transporter.sendMail({
             from: adminMail,
-            to: "kristin.conzet@wdrws.org",
+            to: ["kristin.conzet@wdrws.org","stephens@egmrc.com"],
             replyTo: email as string,
             subject: `New Contact form submission from ${firstName} ${lastName} (wdrws.org)`,
-            html: `
+            html: newsLetter === "off" ? `
             <!DOCTYPE html >
 <html lang="en">
 <head>
@@ -186,7 +190,6 @@ export const sendMail = async (prevState: any, formData: FormData) => {
 Name: ${firstName} ${lastName} <br/>
 Email: ${email} <br/>
 Phone: ${phone} <br/>
-${newsLetter ? "I wish to receive the newsletter" : ""}
 </p>
 <p>Reason for contacting: ${reasonForContacting}</p>
 <p>
@@ -196,7 +199,37 @@ ${message}
 </div>
 </body>
 </html>
-            `
+            ` :
+                `
+                            <!DOCTYPE html >
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Contact</title>
+</head>
+<body>
+<div style="padding:20px;">
+<div style="max-width: 500px;">
+<p>
+Name: ${firstName} ${lastName} <br/>
+Email: ${email} <br/>
+Phone: ${phone} <br/>
+I wish to receive the newsletter
+</p>
+<p>Reason for contacting: ${reasonForContacting}</p>
+<p>
+${message}
+</p>
+<p>
+    Address: ${address} <br/>
+    City: ${city} <br/>
+    State: ${state} <br/>
+    Zip: ${zip} <br/>
+</p>
+</div>
+</div>
+</body>
+</html>
+                `
         });
 //confirmation email
         await transporter.sendMail({

@@ -12,6 +12,7 @@ const initialState = {
 const ContactForm = () => {
     const [loading, setLoading] = useState(false);
     const [reasonForContact, setReasonForContact] = useState('');
+    const [newsletterIsChecked, setNewsletterIsChecked] = useState(false);
 
     const searchParams = useSearchParams();
 
@@ -80,8 +81,18 @@ const ContactForm = () => {
                     <textarea className="border-b-2 border-slate-300 shadow-sm" id="message" name="message"/>
                 </div>
                 <div>
-                    <input className="mr-1" type="checkbox" id="newsletter" name="newsletter"/>
+                    <input onChange={(e) => setNewsletterIsChecked(e.target.checked)} className="mr-1" type="checkbox" id="newsletter" name="newsletter"/>
                     <label htmlFor="newsletter">I want to receive the newsletter</label>
+                </div>
+                <div className={`flex-col flex mb-4 ${newsletterIsChecked ? "" : "hidden"}`}>
+                    <label htmlFor="mailing-address">Address <span className="text-red-600">*</span></label>
+                    <input required={newsletterIsChecked} className="border-b-2 border-slate-300 shadow-sm" type="text" id="mailing-address" name="mailing-address"/>
+                    <label htmlFor="city">City <span className="text-red-600">*</span></label>
+                    <input required={newsletterIsChecked} className="border-b-2 border-slate-300 shadow-sm" type="text" id="city" name="city"/>
+                    <label htmlFor="city">State <span className="text-red-600">*</span></label>
+                    <input required={newsletterIsChecked} className="border-b-2 border-slate-300 shadow-sm" type="text" id="state" name="state"/>
+                    <label htmlFor="zip">Zip <span className="text-red-600">*</span></label>
+                    <input required={newsletterIsChecked} className="border-b-2 border-slate-300 shadow-sm" type="text" id="zip" name="zip"/>
                 </div>
                 <p className="text-red-600">
                     {state?.error}
