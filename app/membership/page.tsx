@@ -55,8 +55,6 @@ export default async function Page() {
                                      <li>
                                          Any individual interested party desiring to
                                          support the Association
-                                         Member Class Options 2024
-                                         WESTERN DAKOTA REGIONAL WATER SYSTEM
                                      </li>
                                  </ul>
                              }/>
