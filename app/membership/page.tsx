@@ -16,6 +16,7 @@ export default async function Page() {
     return (
         <InnerPageContent width={"MD"} content={
             <div className="py-10">
+                <p className="mb-6 text-secondary-500">Prefer paper? <a href="/wdrws-2026-membership.pdf" target="_blank" rel="noopener noreferrer" className="underline">Print the PDF</a> instead.</p>
                 <MembershipForm/>
                 <MemberLevel title="Class 1 Member" price="$1500"
                              content={
