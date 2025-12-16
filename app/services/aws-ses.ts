@@ -275,6 +275,100 @@ ${message}
 
 }
 
+export const sendFinancialsRequestMail = async (prevState: any, formData: FormData) => {
+    const email = formData.get("email");
+    const firstName = formData.get("firstName");
+    const lastName = formData.get("lastName");
+    const organization = formData.get("organization");
+
+    let error = "";
+
+    if (!email) {
+        error += "Please enter a valid email address. ";
+    }
+    if (!firstName) {
+        error += "Please enter a valid first name. ";
+    }
+    if (!lastName) {
+        error += "Please enter a valid last name. ";
+    }
+    if (!organization) {
+        error += "Please enter an organization. ";
+    }
+
+    if (error) {
+        return {
+            message: "",
+            error: error
+        }
+    }
+
+    try {
+        await transporter.sendMail({
+            from: adminMail,
+            to: ["kristin.conzet@wdrws.org"],
+            replyTo: email as string,
+            subject: `2025 Financials request from ${firstName} ${lastName} (wdrws.org)`,
+            html: `
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>2025 Financials</title>
+            </head>
+            <body>
+                <div style="padding:20px;">
+                    <div style="max-width: 500px;">
+                        <p>
+                            <strong>Name:</strong> ${firstName} ${lastName} <br/>
+                            <strong>Email:</strong> ${email} <br/>
+                            <strong>Organization:</strong> ${organization} <br/>
+                        </p>
+                    </div>
+                </div>
+            </body>
+            </html>
+            `
+        });
+
+        // confirmation email
+        await transporter.sendMail({
+            from: adminMail,
+            to: email as string,
+            replyTo: adminMail,
+            subject: `Request received: 2025 financial information (wdrws.org)`,
+            html: `
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>2025 Financials</title>
+            </head>
+            <body>
+                <div style="padding:20px;">
+                    <div style="max-width: 500px;">
+                        <p>Thank you for your request. We have received your submission for the 2025 financial information.</p>
+                        <p>
+                            <strong>Name:</strong> ${firstName} ${lastName} <br/>
+                            <strong>Organization:</strong> ${organization}
+                        </p>
+                        <p>We will follow up shortly.</p>
+                        <p>- Western Dakota Regional Water System</p>
+                    </div>
+                </div>
+            </body>
+            </html>
+            `
+        });
+
+        return {
+            message: "Thank you. Your request for the 2025 financial information has been received.",
+            error: ""
+        }
+    } catch (e) {
+        console.error(e);
+        return {error: "There was a problem sending your message please try again later.", msg: ""}
+    }
+}
+
 export const testMail = async (userEmail: string) => {
     try {
         const response = await transporter.sendMail({
