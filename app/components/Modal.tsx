@@ -22,13 +22,13 @@ const Modal = () => {
                     x
                 </button>
                 <h2 className="text-2xl font-bold mt-4 text-center mb-4">Quarterly Technical Sessions</h2>
-                <p>Friday, October 3 • 12 – 1 pm MST</p>
-                <p>Conceptual Water Treatment System – Preliminary Water Quality Data and Testing
+                <p>Friday, January 9 • 12 – 1 pm MST</p>
+                <p>Legislative Update, USGS Report
                 </p>
 {/*                <p>
                     Presented by Colton Medler and Galen Hoogestraat, USGS
                 </p>*/}
-                <a className="mt-4 font-bold bg-primary-700 p-4 block text-center rounded text-xl" href="https://www.eventbrite.com/e/wdrws-quarterly-technical-sessions-tickets-1735205138279?aff=oddtdtcreator">Register now!</a>
+                <a className="mt-4 font-bold bg-primary-700 p-4 block text-center rounded text-xl" href="https://mailchi.mp/15f5bf86aca6/technical-session-sign-up">Register now!</a>
             </div>
             <div onClick={toggleModal} className="bg-black opacity-50 absolute inset-0"/>
         </div>

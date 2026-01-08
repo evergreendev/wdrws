@@ -4,6 +4,7 @@ import {lato, newsreader, pt_sans} from "@/app/fonts";
 import TopNav from "@/app/components/TopNav";
 import Footer from "@/app/components/Footer";
 import { GoogleAnalytics } from "@next/third-parties/google"
+import Modal from "@/app/components/Modal";
 
 
 export const metadata: Metadata = {
@@ -24,7 +25,7 @@ export default function RootLayout({
         <TopNav/>
         {children}
         <Footer/>
-        {/*<Modal/>*/}
+        <Modal/>
         </body>
         </html>
     );
