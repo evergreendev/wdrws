@@ -25,7 +25,7 @@ export default function RootLayout({
         <TopNav/>
         {children}
         <Footer/>
-        <Modal/>
+        {/*<Modal/>*/}
         </body>
         </html>
     );
