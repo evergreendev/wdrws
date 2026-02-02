@@ -24,6 +24,7 @@
     "nodemailer": "^6.9.13",
     "react": "^18",
     "react-dom": "^18",
+    "react-google-recaptcha-v3": "^1.11.0",
     "react-loading-skeleton": "^3.4.0",
     "react-string-replace": "^1.1.1",
     "sharp": "^0.33.3",

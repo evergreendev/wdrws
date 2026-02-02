@@ -5,6 +5,7 @@ import TopNav from "@/app/components/TopNav";
 import Footer from "@/app/components/Footer";
 import { GoogleAnalytics } from "@next/third-parties/google"
 import Modal from "@/app/components/Modal";
+import ReCaptchaProvider from "@/app/components/ReCaptchaProvider";
 
 
 export const metadata: Metadata = {
@@ -22,10 +23,12 @@ export default function RootLayout({
         <GoogleAnalytics gaId={"G-5JRPP98J4S"}/>
         <GoogleAnalytics gaId={"G-LSRWS849HZ"}/>
         <body className={`${newsreader.variable} ${lato.variable} ${pt_sans.variable} overflow-x-hidden wp-embed-responsive`}>
-        <TopNav/>
-        {children}
-        <Footer/>
-        {/*<Modal/>*/}
+        <ReCaptchaProvider>
+            <TopNav/>
+            {children}
+            <Footer/>
+            {/*<Modal/>*/}
+        </ReCaptchaProvider>
         </body>
         </html>
     );

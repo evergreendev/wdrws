@@ -1,8 +1,9 @@
 "use client"
 import {sendMail} from "@/app/services/aws-ses"
 import {useFormState} from 'react-dom'
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useCallback} from 'react'
 import {useSearchParams} from 'next/navigation'
+import {useGoogleReCaptcha} from "react-google-recaptcha-v3";
 
 const initialState = {
     message: "",
@@ -15,6 +16,7 @@ const ContactForm = () => {
     const [newsletterIsChecked, setNewsletterIsChecked] = useState(false);
 
     const searchParams = useSearchParams();
+    const { executeRecaptcha } = useGoogleReCaptcha();
 
     useEffect(() => {
         // Get the reason from URL parameters if available
@@ -26,6 +28,12 @@ const ContactForm = () => {
 
     const [state, formAction] = useFormState(async (prevState: any, formData: FormData) => {
         setLoading(true);
+        if (!executeRecaptcha) {
+            setLoading(false);
+            return { ...prevState, error: "reCAPTCHA not available" };
+        }
+        const token = await executeRecaptcha("contact_form");
+        formData.append("g-recaptcha-response", token);
         const result = await sendMail(prevState, formData);
         setLoading(false);
         return result;

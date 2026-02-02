@@ -2,6 +2,7 @@
 import {sendMembershipMail} from "@/app/services/aws-ses"
 import {useFormState} from 'react-dom'
 import {useState} from 'react'
+import {useGoogleReCaptcha} from "react-google-recaptcha-v3";
 
 const initialState = {
     message: "",
@@ -10,8 +11,15 @@ const initialState = {
 
 const MembershipForm = () => {
     const [loading, setLoading] = useState(false);
+    const { executeRecaptcha } = useGoogleReCaptcha();
     const [state, formAction] = useFormState(async (prevState: any, formData: FormData) => {
         setLoading(true);
+        if (!executeRecaptcha) {
+            setLoading(false);
+            return { ...prevState, error: "reCAPTCHA not available" };
+        }
+        const token = await executeRecaptcha("membership_form");
+        formData.append("g-recaptcha-response", token);
         const result = await sendMembershipMail(prevState, formData);
         setLoading(false);
         return result;

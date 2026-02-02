@@ -12,7 +12,30 @@ const transporter = nodeMailer.createTransport({
     },
 });
 
+const verifyRecaptcha = async (token: string) => {
+    const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+    if (!secretKey) {
+        console.error("RECAPTCHA_SECRET_KEY is not set");
+        return false;
+    }
+
+    const response = await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`, {
+        method: 'POST',
+    });
+
+    const data = await response.json();
+    return data.success && data.score >= 0.5; // Adjusted score threshold as needed
+};
+
 export const sendMembershipMail = async (prevState: any, formData: FormData) => {
+    const recaptchaToken = formData.get("g-recaptcha-response") as string;
+    if (!recaptchaToken || !(await verifyRecaptcha(recaptchaToken))) {
+        return {
+            message: "",
+            error: "reCAPTCHA verification failed. Please try again."
+        };
+    }
+
     const email = formData.get("email");
     const firstName = formData.get("firstName");
     const lastName = formData.get("lastName");
@@ -136,6 +159,14 @@ ${website ? `<strong>Website:</strong> ${website}<br/>` : ""}
 }
 
 export const sendMail = async (prevState: any, formData: FormData) => {
+    const recaptchaToken = formData.get("g-recaptcha-response") as string;
+    if (!recaptchaToken || !(await verifyRecaptcha(recaptchaToken))) {
+        return {
+            message: "",
+            error: "reCAPTCHA verification failed. Please try again."
+        };
+    }
+
     const email = formData.get("email");
     const firstName = formData.get("firstName");
     const lastName = formData.get("lastName");
@@ -276,6 +307,14 @@ ${message}
 }
 
 export const sendFinancialsRequestMail = async (prevState: any, formData: FormData) => {
+    const recaptchaToken = formData.get("g-recaptcha-response") as string;
+    if (!recaptchaToken || !(await verifyRecaptcha(recaptchaToken))) {
+        return {
+            message: "",
+            error: "reCAPTCHA verification failed. Please try again."
+        };
+    }
+
     const email = formData.get("email");
     const firstName = formData.get("firstName");
     const lastName = formData.get("lastName");
