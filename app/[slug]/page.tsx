@@ -6,7 +6,8 @@ import {Metadata, ResolvingMetadata} from "next";
 
 
 async function getData(slug: string) {
-    const res = await fetch(`${CMS_URL}pages?slug=${slug}`,{next: {tags: [slug]}})
+    const normalizedSlug = slug.toLowerCase();
+    const res = await fetch(`${CMS_URL}pages?slug=${normalizedSlug}`,{next: {tags: [normalizedSlug]}})
 
     if (!res.ok) {
         notFound();
@@ -16,7 +17,8 @@ async function getData(slug: string) {
 }
 
 export async function generateMetadata({params}: { params: { slug: string } }, parent: ResolvingMetadata): Promise<Metadata> {
-    const data = await getData(params.slug);
+    const normalizedSlug = params.slug.toLowerCase();
+    const data = await getData(normalizedSlug);
     if (!data[0]) {
         notFound();
     }
