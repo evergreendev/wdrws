@@ -22,13 +22,18 @@ const Modal = () => {
                     x
                 </button>
                 <h2 className="text-2xl font-bold mt-4 text-center mb-4">Quarterly Technical Sessions</h2>
-                <p>Friday, January 9 • 12 – 1 pm MST</p>
-                <p>Legislative Update, USGS Report
+                <p>Friday, April 10, 2026 • 12 – 1 pm MST</p>
+                <p>Topics will include:
                 </p>
+                <ul>
+                    <li>Membership Benefits</li>
+                        <li>Conservation Implementation</li>
+                        <li>Future Financial Planning</li>
+                </ul>
 {/*                <p>
                     Presented by Colton Medler and Galen Hoogestraat, USGS
                 </p>*/}
-                <a className="mt-4 font-bold bg-primary-700 p-4 block text-center rounded text-xl" href="https://mailchi.mp/15f5bf86aca6/technical-session-sign-up">Register now!</a>
+                <a className="mt-4 font-bold bg-primary-700 p-4 block text-center rounded text-xl" href="https://us02web.zoom.us/j/83055507395?pwd=nVGadObaHl8vCkS9i9OaCQ0hzTkAp3.1">Join Link</a>
             </div>
             <div onClick={toggleModal} className="bg-black opacity-50 absolute inset-0"/>
         </div>

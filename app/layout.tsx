@@ -27,7 +27,7 @@ export default function RootLayout({
             <TopNav/>
             {children}
             <Footer/>
-            {/*<Modal/>*/}
+            <Modal/>
         </ReCaptchaProvider>
         </body>
         </html>
