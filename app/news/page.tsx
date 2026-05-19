@@ -33,8 +33,7 @@ export default async function Page() {
     const contentWithIframe = (
         <>
             <div className="mb-6">
-                The inflow and outflow of reservoirs offers clues into the water security of western South Dakota. Use
-                <a href="https://www.usbr.gov/gp/hydromet/inflow.html">this tool</a> from the Bureau of Reclamation to monitor these levels for yourself.
+                The inflow and outflow of reservoirs offers clues into the water security of western South Dakota. Use <a className="underline font-bold" href="https://www.usbr.gov/gp/hydromet/inflow.html">this tool</a> from the Bureau of Reclamation to monitor these levels for yourself.
             </div>
             <div className="mb-6">
                 <iframe
