@@ -4,7 +4,7 @@ import InnerPageContent from "@/app/components/InnerPageContent";
 import {WP_REST_API_Post} from "wp-types";
 import NewsList from "@/app/components/NewsList";
 
-async function getData() : Promise<{data: WP_REST_API_Post[], totalPages: string|null}> {
+async function getData(): Promise<{ data: WP_REST_API_Post[], totalPages: string | null }> {
 
     /*TODO add pagination*/
     const res = await fetch(
@@ -28,16 +28,21 @@ export default async function Page() {
         notFound();
     }
 
-    const items = await NewsList(data.data,"news");
+    const items = await NewsList(data.data, "news");
 
     const contentWithIframe = (
         <>
             <div className="mb-6">
-                <iframe src="https://embed.acast.com/$/5e912600e188b1a04155c38c/water-for-the-west-with-kristen-conzet-and-cory-chornee?" 
-                        frameBorder="0" 
-                        width="100%" 
-                        height="110px" 
-                        allow="autoplay"></iframe>
+                The inflow and outflow of reservoirs offers clues into the water security of western South Dakota. Use
+                <a href="https://www.usbr.gov/gp/hydromet/inflow.html">this tool</a> from the Bureau of Reclamation to monitor these levels for yourself.
+            </div>
+            <div className="mb-6">
+                <iframe
+                    src="https://embed.acast.com/$/5e912600e188b1a04155c38c/water-for-the-west-with-kristen-conzet-and-cory-chornee?"
+                    frameBorder="0"
+                    width="100%"
+                    height="110px"
+                    allow="autoplay"></iframe>
             </div>
             {items}
         </>
