@@ -44,12 +44,15 @@ const TopBar = () => {
 const TopNav = () => {
     return <nav className="sticky top-0 sm:static z-40">
         <a
-            className="group block bg-[#0e5485] px-4 py-2 text-center font-pt_sans text-sm font-bold leading-snug text-white transition-colors hover:bg-blue-900 sm:text-base"
+            className="group block border-y-4 border-[#0e5485] bg-primary-500 px-4 py-3 text-center font-pt_sans font-bold text-dark-gray shadow-lg transition-colors hover:bg-primary-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-white"
             href="https://justaddwatersd.org/"
             target="_blank"
             rel="noopener noreferrer"
         >
-            The future of West River depends on water. Share the story. <span className="inline-block text-primary-500 underline decoration-2 underline-offset-4 transition-colors group-hover:text-primary-300">Just Add Water.</span>
+            <span className="text-base leading-snug sm:text-xl">Explore West River’s water future at our new website.</span>
+            <span className="ml-2 mt-2 inline-block rounded-full bg-[#0e5485] px-4 py-1.5 text-base text-white shadow-md ring-2 ring-white transition-transform group-hover:scale-105 sm:mt-0 sm:text-xl">
+                JustAddWaterSD.org
+            </span>
         </a>
         <TopBar/>
         <div className="bg-primary-500 px-16 hidden sm:block">
