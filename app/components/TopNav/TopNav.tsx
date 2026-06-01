@@ -49,7 +49,7 @@ const TopNav = () => {
             target="_blank"
             rel="noopener noreferrer"
         >
-            <span className="text-base leading-snug sm:text-xl">Explore West River’s water future at our new website.</span>
+            <span className="text-base leading-snug sm:text-xl">Discover the challenge and explore the solution</span>
             <span className="ml-2 mt-2 inline-block rounded-full bg-[#0e5485] px-4 py-1.5 text-base text-white shadow-md ring-2 ring-white transition-transform group-hover:scale-105 sm:mt-0 sm:text-xl">
                 JustAddWaterSD.org
             </span>
