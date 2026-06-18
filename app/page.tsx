@@ -1,6 +1,6 @@
 import ImageCard from "@/app/components/ImageCard";
 import technical from "@/public/technical.jpg";
-import report from "@/public/report.png";
+import report from "@/public/annual-report-2025.png";
 import staffImg from "@/public/kristin-square.jpg";
 import board from "@/public/jake.png";
 import history from "@/public/history.png";
@@ -99,7 +99,7 @@ export default async function Home() {
                             <Image className="w-3/12" src={report} alt=""/>
 
                             <h2 className="w-8/12 text-xl grow text-black p-2">
-                                Annual Report
+                                Impact, Progress & Partnership Report
                             </h2>
                         </Link>
                         <Link className="flex w-full hover:bg-slate-200 mb-2 items-center"
