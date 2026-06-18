@@ -48,13 +48,13 @@ const PostList = async (items: WP_REST_API_Post[], category: string) => {
                 <h2 className="font-bold text-3xl mt-8">{month.month + " " + month.year}</h2>
             }
             <Link
-                className="max-w-screen-md flex flex-wrap sm:flex-nowrap hover:bg-opacity-60 text-xl my-2 border-green-500 font-newsreader sm:pr-0"
+                className="max-w-screen-md flex flex-wrap sm:flex-nowrap hover:bg-slate-100 text-xl my-4 border-green-500 font-newsreader"
                 href={outsideLink ? outsideLink :`/${category}/${item.slug}`} key={item.slug}>
                 {
                     featuredImg && (
-                    <div className="w-20 h-20 min-w-20 mr-2 flex-shrink-0">
+                    <div className="w-full sm:w-36 sm:min-w-[9rem] aspect-[4/3] bg-white p-2 sm:mr-4 mb-3 sm:mb-0 flex-shrink-0 flex items-center justify-center">
                         <Image 
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-contain"
                             src={featuredImg.source_url} 
                             alt=""
                             width={featuredImg.media_details.width}
@@ -62,10 +62,10 @@ const PostList = async (items: WP_REST_API_Post[], category: string) => {
                         />
                     </div>
                 )}
-                <div className="p-2 flex-grow flex-col flex">
-                    <div className="my-auto underline" dangerouslySetInnerHTML={{__html: item.title.rendered + " | " + formattedDate}}/>
+                <div className="p-3 sm:p-4 flex-grow flex-col flex">
+                    <div className="my-auto underline text-xl sm:text-2xl leading-tight" dangerouslySetInnerHTML={{__html: item.title.rendered + " | " + formattedDate}}/>
                     {newsPreviewLine && 
-                        <div className="mt-1 text-base no-underline" dangerouslySetInnerHTML={{__html: newsPreviewLine}}/>
+                        <div className="mt-2 text-base sm:text-lg leading-snug no-underline" dangerouslySetInnerHTML={{__html: newsPreviewLine}}/>
                     }
                 </div>
             </Link>

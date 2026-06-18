@@ -44,15 +44,17 @@ const PostList = async (items: WP_REST_API_Post[], category: string) => {
                         <h2 className="font-bold text-2xl">{month.month + " " + month.year}</h2>
                     }
                     <Link
-                        className="max-w-screen-md mx-auto flex shadow-sm flex-wrap sm:flex-nowrap bg-green-500 bg-opacity-40 hover:bg-opacity-60 text-3xl my-8 border-green-500 font-newsreader font-bold sm:pr-0"
+                        className="max-w-screen-md mx-auto flex shadow-sm flex-wrap sm:flex-nowrap bg-green-500 bg-opacity-40 hover:bg-opacity-60 text-2xl lg:text-3xl my-8 border-green-500 font-newsreader font-bold"
                         href={`/${category}/${item.slug}`} key={item.slug}>
-                        <Image className="w-full sm:w-72 sm:min-w-72 sm:min-h-60 mb-6 sm:mr-2 sm:mb-0 object-cover"
-                               src={featuredImg.source_url} alt=""
-                               width={featuredImg.media_details.width as number}
-                               height={featuredImg.media_details.height as number}/>
-                        <div className="p-2 flex-grow flex-col flex">
-                            <div className="my-auto" dangerouslySetInnerHTML={{__html: item.title.rendered}}/>
-                            <p className="mt-4 ml-auto font-avenir text-2xl bg-primary-500 flex px-6 py-1 rounded text-right">Learn
+                        <div className="w-full sm:w-72 sm:min-w-[18rem] aspect-[4/3] bg-white p-3 sm:p-4 mb-4 sm:mr-4 sm:mb-0 flex items-center justify-center">
+                            <Image className="w-full h-full object-contain"
+                                   src={featuredImg.source_url} alt=""
+                                   width={featuredImg.media_details.width as number}
+                                   height={featuredImg.media_details.height as number}/>
+                        </div>
+                        <div className="p-5 sm:p-6 flex-grow flex-col flex">
+                            <div className="my-auto leading-tight" dangerouslySetInnerHTML={{__html: item.title.rendered}}/>
+                            <p className="mt-5 ml-auto font-avenir text-lg sm:text-xl bg-primary-500 flex px-5 py-2 rounded text-right">Learn
                                 More</p>
                         </div>
                     </Link>
@@ -66,11 +68,11 @@ const PostList = async (items: WP_REST_API_Post[], category: string) => {
                 <h2 className="font-bold text-2xl">{month.month + " " + month.year}</h2>
             }
             <Link
-                className="max-w-screen-md mx-auto flex shadow-sm flex-wrap sm:flex-nowrap bg-green-500 bg-opacity-50 hover:bg-opacity-60 text-3xl my-8 border-green-500 font-newsreader font-bold sm:pr-0"
+                className="max-w-screen-md mx-auto flex shadow-sm flex-wrap sm:flex-nowrap bg-green-500 bg-opacity-50 hover:bg-opacity-60 text-2xl lg:text-3xl my-8 border-green-500 font-newsreader font-bold"
                 href={`/${category}/${item.slug}`} key={item.slug}>
-                <div className="p-2 flex-grow flex-col flex">
-                    <div className="my-auto" dangerouslySetInnerHTML={{__html: item.title.rendered}}/>
-                    <p className="mt-4 ml-auto font-avenir text-2xl bg-primary-500 flex px-6 py-1 rounded text-right">Learn
+                <div className="p-5 sm:p-6 flex-grow flex-col flex">
+                    <div className="my-auto leading-tight" dangerouslySetInnerHTML={{__html: item.title.rendered}}/>
+                    <p className="mt-5 ml-auto font-avenir text-lg sm:text-xl bg-primary-500 flex px-5 py-2 rounded text-right">Learn
                         More</p>
                 </div>
             </Link>
