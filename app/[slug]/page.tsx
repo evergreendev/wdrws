@@ -1,5 +1,5 @@
 import {CMS_URL} from "@/constants";
-import {notFound} from "next/navigation";
+import {notFound, redirect} from "next/navigation";
 import InnerPageContent from "@/app/components/InnerPageContent";
 import {Metadata, ResolvingMetadata} from "next";
 
@@ -7,6 +7,10 @@ import {Metadata, ResolvingMetadata} from "next";
 
 async function getData(slug: string) {
     const normalizedSlug = slug.toLowerCase();
+    if (normalizedSlug === "rsvp") {
+        redirect("https://forms.gle/9LSvZHvQtLZmbBK27");
+    }
+
     const res = await fetch(`${CMS_URL}pages?slug=${normalizedSlug}`,{next: {tags: [normalizedSlug]}})
 
     if (!res.ok) {
