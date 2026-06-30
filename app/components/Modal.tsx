@@ -22,14 +22,14 @@ const Modal = () => {
                     x
                 </button>
                 <h2 className="text-2xl font-bold mt-4 text-center mb-4">Quarterly Technical Sessions</h2>
-                <p>Friday, April 10, 2026 • 12 – 1 pm MST</p>
-                <p>Topics will include:
-                </p>
-                <ul>
+                <p>Friday, July 10, 2026 • 12 – 1 pm MST</p>
+{/*                <p>Topics will include:
+                </p>*/}
+{/*                <ul>
                     <li>Membership Benefits</li>
                         <li>Conservation Implementation</li>
                         <li>Future Financial Planning</li>
-                </ul>
+                </ul>*/}
 {/*                <p>
                     Presented by Colton Medler and Galen Hoogestraat, USGS
                 </p>*/}
