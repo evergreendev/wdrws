@@ -18,7 +18,7 @@ export default async function Page() {
             <div className="py-10">
                 <p className="mb-6 text-secondary-500">Prefer paper? <a href="/wdrws-2026-membership.pdf" target="_blank" rel="noopener noreferrer" className="underline">Print the PDF</a> instead.</p>
                 <MembershipForm/>
-                <MemberLevel title="Class 1 Member" price="$1500"
+                <MemberLevel title="Class 1 Member" price="$2000"
                              content={
                                  <ul>
                                      <li>Voting Member</li>
@@ -27,7 +27,7 @@ export default async function Page() {
                                      </li>
                                  </ul>
                              }/>
-                <MemberLevel title="Class 2 Member" price="$750"
+                <MemberLevel title="Class 2 Member" price="$1000"
                              content={
                                  <ul>
                                      <li>Voting Member</li>
@@ -39,7 +39,7 @@ export default async function Page() {
                                      </li>
                                  </ul>
                              }/>
-                <MemberLevel title="Associate Member" price="$375"
+                <MemberLevel title="Associate Member" price="$500"
                              content={
                                  <ul>
                                      <li>Non-voting Member</li>
@@ -49,7 +49,7 @@ export default async function Page() {
                                      </li>
                                  </ul>
                              }/>
-                <MemberLevel title="Supporting Individual" price="$50"
+                <MemberLevel title="Supporting Individual" price="$65"
                              content={
                                  <ul>
                                      <li>Non-member</li>
