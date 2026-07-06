@@ -193,6 +193,38 @@ body {
   overflow: auto;
 }
 
+.content .wp-block-table.is-style-stripes {
+  background: #799d4f;
+  border-radius: 10px;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  padding: 8px;
+  color: white;
+}
+
+.content .wp-block-table.is-style-stripes table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.content .wp-block-table.is-style-stripes tbody tr:nth-child(even) {
+  background: #b7c59b;
+}
+
+.content .wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
+  background: transparent;
+}
+
+.content .wp-block-table.is-style-stripes th,
+.content .wp-block-table.is-style-stripes td {
+  border: 0;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
 
 .wp-block-button__link {
     color: var(--wp--preset--color--primary);
