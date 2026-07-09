@@ -78,8 +78,10 @@ body {
     text-wrap: balance;
   }
 }
-.content p>a{
+.content :where(p, li, td, figcaption) a:not(.wp-block-button__link):not(.wp-element-button){
+  color: var(--wp--preset--color--primary);
   text-decoration: underline;
+  text-underline-offset: 0.12em;
 }
 
 .content h2{
@@ -306,4 +308,9 @@ body {
 }
 .aligncenter{
   justify-content: center;
+}
+.wp-block-paragraph a{
+  color: var(--wp--preset--color--primary);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
 }
