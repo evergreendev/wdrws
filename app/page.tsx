@@ -119,7 +119,7 @@ export default async function Home() {
                             News
                         </h2></Link>
                     <div className="mx-auto py-6 w-full px-8">
-                        <Link
+{/*                        <Link
                             className="group mb-6 block border-y-4 border-[#0e5485] bg-primary-500 px-5 py-5 text-center font-pt_sans font-bold text-dark-gray shadow-lg transition-colors hover:bg-primary-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-secondary-500"
                             href="/western-dakota-regional-water-watch">
                             <span className="block text-xl leading-snug sm:text-2xl">
@@ -128,7 +128,7 @@ export default async function Home() {
                             <span className="mt-3 inline-block rounded-full bg-[#0e5485] px-6 py-2 text-xl text-white shadow-md ring-2 ring-white transition-transform group-hover:scale-105 sm:text-2xl">
                                 Western Dakota Regional Water Watch
                             </span>
-                        </Link>
+                        </Link>*/}
                         <div className="mb-6">
                             <iframe src="https://embed.acast.com/$/5e912600e188b1a04155c38c/water-for-the-west-with-kristen-conzet-and-cory-chornee?" 
                                     frameBorder="0" 
