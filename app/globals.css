@@ -353,7 +353,7 @@ body {
 
 .wdrws-hero__logo { width: 100%; height: auto; }
 .wdrws-eyebrow,
-.wdrws-kicker { margin: 0 0 5px; font-size: .76rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.wdrws-kicker { margin: 0!important; font-size: .76rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .wdrws-eyebrow { color: #fff; }
 .wdrws-hero h1,
 .wdrws-section h2 {
@@ -393,15 +393,18 @@ body {
 .wdrws-card__logo { position: absolute; top: 19px; right: 20px; width: 45px; height: 45px; object-fit: contain; }
 .wdrws-card__logo--wide { width: 72px; }
 .wdrws-card__symbol { display: grid; position: absolute; top: 18px; right: 20px; width: 47px; height: 47px; place-items: center; border-radius: 50%; background: var(--fresh-blue); color: #fff; font-size: 1.7rem; }
-.wdrws-card h3 { margin: 27px 0 7px; color: #111; font-family: Verdana, Arial, sans-serif; font-size: 1.15rem; }
+.wdrws-card h3 {
+  margin: 27px 0 7px;
+  color: #111; font-family: Verdana, Arial, sans-serif; font-size: 1.5rem; font-weight: bold;
+}
 .wdrws-card p { margin: 0 0 20px; color: var(--muted); }
 .wdrws-card__link { margin-top: auto; color: #086c9f; font-weight: 800; }
 
 .wdrws-subsection { margin-top: 28px; }
 .wdrws-subsection h3 { margin: 0 0 2px; color: #111; font-family: Verdana, Arial, sans-serif; font-size: 1.12rem; text-transform: uppercase; }
 .wdrws-subsection__intro { margin: 0 0 14px; color: var(--muted); }
-.wdrws-grid--compact { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.wdrws-mini-card { display: flex; flex-direction: column; min-height: 108px; padding: 16px; border: 1px solid #bad8e8; border-bottom: 4px solid var(--yellow); border-radius: 12px; background: #fff; transition: .18s ease; }
+.wdrws-grid--compact { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px }
+.wdrws-mini-card { display: flex; flex-direction: column; min-height: 108px; padding: 24px; border: 1px solid #bad8e8; border-bottom: 4px solid var(--yellow); border-radius: 12px; background: #fff; transition: .18s ease; }
 .wdrws-mini-card span { color: var(--muted); font-size: .78rem; }
 .wdrws-mini-card strong { margin-top: auto; color: #086c9f; font-size: .94rem; }
 
