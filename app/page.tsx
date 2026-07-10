@@ -51,7 +51,7 @@ export default async function Home() {
 
     return (
         <main className="font-pt_sans flex min-h-screen flex-col justify-between bg-white">
-            <ModalWrapper />
+           {/* <ModalWrapper />*/}
             <div className="bg-hero bg-cover min-h-[30vh] relative">
                 <div
                     className="w-full bg-white bg-opacity-60 max-w-screen-xl lg:max-w-screen-xl mx-auto py-10 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
