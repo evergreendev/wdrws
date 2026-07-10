@@ -3,13 +3,14 @@ import {ReactElement} from "react";
 
 type props = {
     title: string,
-    content: string|ReactElement|ReactElement[],
+    content: string | ReactElement | ReactElement[],
     isContent?: boolean,
-    width: "SM"|"MD"|"LG"|"XL"|"2XL"
-    featuredImg?: any
+    width: "SM" | "MD" | "LG" | "XL" | "2XL",
+    featuredImg?: any,
+    pageId?: string
 }
 
-const InnerPageContent = ({width,title,content, isContent=true, featuredImg}: props) => {
+const InnerPageContent = ({width, title, content, isContent = true, featuredImg, pageId}: props) => {
     const widthDict = {
         Default: "max-w-screen-xl",
         SM: "max-w-screen-sm",
@@ -19,9 +20,9 @@ const InnerPageContent = ({width,title,content, isContent=true, featuredImg}: pr
         "2XL": "max-w-screen-2xl"
     }
 
-    return <main className="font-pt_sans flex-col bg-slate-100 overflow-auto min-h-[68vh]">
+    return <main className={`page-${pageId} font-pt_sans flex-col bg-slate-100 overflow-auto min-h-[68vh]`}>
         <div className="flex">
-            <h1 className="bg-green-500 mt-8 mb-6 pl-7 py-7 text-white text-4xl lg:text-6xl font-newsreader lg:ml-auto w-full lg:w-10/12">
+            <h1 className="page-title bg-green-500 mt-8 mb-6 pl-7 py-7 text-white text-4xl lg:text-6xl font-newsreader lg:ml-auto w-full lg:w-10/12">
                 <span className="max-w-screen-xl block" dangerouslySetInnerHTML={{__html: title}}/>
             </h1>
         </div>

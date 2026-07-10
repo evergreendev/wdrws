@@ -42,6 +42,6 @@ export default async function Page({params}: { params: { slug: string } }) {
     const containerWidth = data[0]?.acf?.page_container_width ? data[0].acf.page_container_width : "LG";
 
     return (
-        <InnerPageContent width={containerWidth} title={data[0].title.rendered} content={data[0].content.rendered}/>
+        <InnerPageContent pageId={data[0].id} width={containerWidth} title={data[0].title.rendered} content={data[0].content.rendered}/>
     );
 }
