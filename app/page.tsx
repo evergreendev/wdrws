@@ -51,7 +51,7 @@ export default async function Home() {
 
     return (
         <main className="font-pt_sans flex min-h-screen flex-col justify-between bg-white">
-           {/* <ModalWrapper />*/}
+            {/* <ModalWrapper />*/}
             <div className="bg-hero bg-cover min-h-[30vh] relative">
                 <div
                     className="w-full bg-white bg-opacity-60 max-w-screen-xl lg:max-w-screen-xl mx-auto py-10 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
@@ -104,7 +104,8 @@ export default async function Home() {
                         </Link>
                         <Link className="flex w-full hover:bg-slate-200 mb-2 items-center"
                               href={`/wdrws-annual-meeting`}>
-                            <div className="w-3/12 bg-primary-500 aspect-square flex flex-col justify-center items-center">
+                            <div
+                                className="w-3/12 bg-primary-500 aspect-square flex flex-col justify-center items-center">
                                 <Image src={annualMeetingLogo} alt=""/>
                             </div>
                             <h2 className="w-8/12 text-xl grow text-black p-2">
@@ -119,22 +120,24 @@ export default async function Home() {
                             News
                         </h2></Link>
                     <div className="mx-auto py-6 w-full px-8">
-{/*                        <Link
+                        <Link
                             className="group mb-6 block border-y-4 border-[#0e5485] bg-primary-500 px-5 py-5 text-center font-pt_sans font-bold text-dark-gray shadow-lg transition-colors hover:bg-primary-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-secondary-500"
                             href="/western-dakota-regional-water-watch">
                             <span className="block text-xl leading-snug sm:text-2xl">
                                 Explore real-time updates and regional water insights
                             </span>
-                            <span className="mt-3 inline-block rounded-full bg-[#0e5485] px-6 py-2 text-xl text-white shadow-md ring-2 ring-white transition-transform group-hover:scale-105 sm:text-2xl">
+                            <span
+                                className="mt-3 inline-block rounded-full bg-[#0e5485] px-6 py-2 text-xl text-white shadow-md ring-2 ring-white transition-transform group-hover:scale-105 sm:text-2xl">
                                 Western Dakota Regional Water Watch
                             </span>
-                        </Link>*/}
+                        </Link>
                         <div className="mb-6">
-                            <iframe src="https://embed.acast.com/$/5e912600e188b1a04155c38c/water-for-the-west-with-kristen-conzet-and-cory-chornee?" 
-                                    frameBorder="0" 
-                                    width="100%" 
-                                    height="110px" 
-                                    allow="autoplay"></iframe>
+                            <iframe
+                                src="https://embed.acast.com/$/5e912600e188b1a04155c38c/water-for-the-west-with-kristen-conzet-and-cory-chornee?"
+                                frameBorder="0"
+                                width="100%"
+                                height="110px"
+                                allow="autoplay"></iframe>
                         </div>
                         {news.map(item => {
                             const outsideLink = (item?.acf as any)?.['outside_link'];
@@ -148,9 +151,9 @@ export default async function Home() {
                                 href={outsideLink ? outsideLink : `/news/${item.slug}`}>
                                 {featuredImg && (
                                     <div className="w-20 h-20 min-w-20 mr-2 flex-shrink-0">
-                                        <Image 
+                                        <Image
                                             className="w-full h-full object-cover"
-                                            src={featuredImg.source_url} 
+                                            src={featuredImg.source_url}
                                             alt=""
                                             width={featuredImg.media_details.width}
                                             height={featuredImg.media_details.height}
@@ -158,9 +161,11 @@ export default async function Home() {
                                     </div>
                                 )}
                                 <div className="flex-grow flex-col flex">
-                                    <div className="my-auto" dangerouslySetInnerHTML={{__html: item.title.rendered + " | " + formattedDate}}/>
-                                    {newsPreviewLine && 
-                                        <div className="mt-1 text-sm" dangerouslySetInnerHTML={{__html: newsPreviewLine}}/>
+                                    <div className="my-auto"
+                                         dangerouslySetInnerHTML={{__html: item.title.rendered + " | " + formattedDate}}/>
+                                    {newsPreviewLine &&
+                                        <div className="mt-1 text-sm"
+                                             dangerouslySetInnerHTML={{__html: newsPreviewLine}}/>
                                     }
                                 </div>
                             </Link>
@@ -169,7 +174,7 @@ export default async function Home() {
                 </div>
 
                 <div
-                      className="xl:w-[33%] grow text-white flex flex-col justify-start px-0  py-0 shadow-md">
+                    className="xl:w-[33%] grow text-white flex flex-col justify-start px-0  py-0 shadow-md">
                     <h2
                         className="p-2 bg-secondary-500 font-newreader text-3xl text-center font-bold mb-2">
                         About
