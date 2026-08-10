@@ -94,6 +94,39 @@ body {
   margin-bottom: .5rem;
 }
 
+.inner-page-with-sidebar {
+  display: grid;
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.side-bar {
+  align-self: start;
+  padding: 1.75rem;
+  border-top: 0.5rem solid var(--wp--preset--color--secondary);
+  background: var(--wp--preset--color--green);
+  color: var(--wp--preset--color--white);
+  box-shadow: var(--wp--preset--shadow--natural);
+  font-size: 1.125rem;
+}
+
+.side-bar :where(h2, h3, h4) {
+  color: var(--wp--preset--color--white);
+  font-family: var(--font-newsreader), serif;
+}
+
+.side-bar :where(a, a:visited) {
+  color: var(--wp--preset--color--white) !important;
+  text-decoration-color: var(--wp--preset--color--secondary) !important;
+}
+
+@media all and (min-width: 1024px) {
+  .inner-page-with-sidebar {
+    grid-template-columns: minmax(0, 3fr) minmax(16rem, 1fr);
+    align-items: start;
+  }
+}
+
 
 @media all and (min-width: 1024px) {
   .content h2{

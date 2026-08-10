@@ -41,6 +41,8 @@ export default async function Page({params}: { params: { slug: string } }) {
     const featuredImg = data[0]?._embedded?.['wp:featuredmedia']?.[0];
 
     return (
-        <InnerPageContent width={containerWidth === "Default" ? "SM" : containerWidth} title={data[0].title.rendered} content={data[0].content.rendered} featuredImg={featuredImg}/>
+        <InnerPageContent width={containerWidth === "Default" ? "SM" : containerWidth}
+                          title={data[0].title.rendered} content={data[0].content.rendered}
+                          featuredImg={featuredImg} sideBar={data[0]?.acf?.side_bar}/>
     );
 }
