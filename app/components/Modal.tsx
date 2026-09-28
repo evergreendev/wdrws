@@ -5,35 +5,31 @@ const Modal = () => {
     const [showModal, setShowModal] = useState(false);
 
     const toggleModal = () => {
-        setShowModal(!showModal);
+        setShowModal(false);
     }
 
     useEffect(() => {
-        window.setTimeout(() => {
-            toggleModal();
-        }, 2000)
+        const timer = window.setTimeout(() => {
+            setShowModal(true);
+        }, 2000);
+        return () => window.clearTimeout(timer);
     }, []);
 
 
     return(
-        <div className={`absolute inset-0 z-50 ${showModal ? "" : "hidden"}`}>
-            <div className={`w-full p-8 bg-slate-100 max-w-screen-md z-20 absolute left-1/2 top-1/4 -translate-y-1/2 -translate-x-1/2`}>
-                <button onClick={toggleModal} className={`rounded-full absolute top-1 right-1 font-bold bg-blue-500 hover:bg-blue-900 size-8 text-white`}>
+        <div className={`fixed inset-0 z-50 ${showModal ? "" : "hidden"}`}>
+            <div className={`w-full p-8 bg-slate-100 max-w-screen-md z-20 absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2`}>
+                <button type="button" aria-label="Close pop-up" onClick={toggleModal} className={`rounded-full absolute top-1 right-1 font-bold bg-blue-500 hover:bg-blue-900 size-8 text-white`}>
                     x
                 </button>
-                <h2 className="text-2xl font-bold mt-4 text-center mb-4">Quarterly Technical Sessions</h2>
-                <p>Friday, July 10, 2026 • 12 – 1 pm MST</p>
-{/*                <p>Topics will include:
-                </p>*/}
-{/*                <ul>
-                    <li>Membership Benefits</li>
-                        <li>Conservation Implementation</li>
-                        <li>Future Financial Planning</li>
-                </ul>*/}
-{/*                <p>
-                    Presented by Colton Medler and Galen Hoogestraat, USGS
-                </p>*/}
-                <a className="mt-4 font-bold bg-primary-700 p-4 block text-center rounded text-xl" href="https://us02web.zoom.us/j/83055507395?pwd=nVGadObaHl8vCkS9i9OaCQ0hzTkAp3.1">Join Link</a>
+                <h2 className="text-2xl font-bold mt-4 text-center mb-4">Technical Session</h2>
+                <p>Topics covered:</p>
+                <ul className="list-disc pl-6 mt-2 space-y-1">
+                    <li>Drought Update</li>
+                    <li>How El Ni&ntilde;o is shaking out</li>
+                    <li>Drought Planning/Management</li>
+                </ul>
+                <a className="mt-4 font-bold bg-primary-700 p-4 block text-center rounded text-xl" href="https://us02web.zoom.us/j/83055507395">Join on Zoom</a>
             </div>
             <div onClick={toggleModal} className="bg-black opacity-50 absolute inset-0"/>
         </div>
