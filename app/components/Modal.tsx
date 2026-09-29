@@ -23,6 +23,8 @@ const Modal = () => {
                     x
                 </button>
                 <h2 className="text-2xl font-bold mt-4 text-center mb-4">Technical Session</h2>
+                <p className="text-center font-bold">Guest speaker: Cody Knutson, PhD</p>
+                <p className="text-center mb-4">Professor at the University of Nebraska Lincoln</p>
                 <p>Topics covered:</p>
                 <ul className="list-disc pl-6 mt-2 space-y-1">
                     <li>Drought Update</li>
