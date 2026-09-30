@@ -31,7 +31,7 @@ const Modal = () => {
                     <li>How El Ni&ntilde;o is shaking out</li>
                     <li>Drought Planning/Management</li>
                 </ul>
-                <a className="mt-4 font-bold bg-primary-700 p-4 block text-center rounded text-xl" href="https://us02web.zoom.us/j/83055507395">Join on Zoom</a>
+                <a className="mt-4 font-bold bg-primary-700 p-4 block text-center rounded text-xl" href="https://www.eventbrite.com/e/2002641833634?aff=oddtdtcreator">Sign Up Now</a>
             </div>
             <div onClick={toggleModal} className="bg-black opacity-50 absolute inset-0"/>
         </div>
