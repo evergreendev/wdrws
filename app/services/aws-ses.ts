@@ -205,7 +205,7 @@ export const sendMail = async (prevState: any, formData: FormData) => {
     try {
         await transporter.sendMail({
             from: adminMail,
-            to: ["kristin.conzet@wdrws.org","stephens@egmrc.com"],
+            to: ["kristin.conzet@wdrws.org","stephens@egmrc.com","Pam.asbridge@wdrws.org"],
             replyTo: email as string,
             subject: `New Contact form submission from ${firstName} ${lastName} (wdrws.org)`,
             html: newsLetter === "off" ? `
